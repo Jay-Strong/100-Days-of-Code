@@ -1,7 +1,7 @@
 from game_data import data
 import random
 from art import logo, vs
- # Jay is the man!
+ # POOP!
 
 def is_higher(u_selection: dict, c_selection: dict) -> bool | None:
     if u_selection["follower_count"] > c_selection["follower_count"]:
