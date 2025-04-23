@@ -15,6 +15,7 @@ def is_higher(u_selection: dict, c_selection: dict) -> bool | None:
 def higher_lower_game():
     profile_1 = random.choice(data)
     profile_2 = random.choice(data)
+    computer_selection = 0
 
     print(logo)
     print(f"\nCompare A: {profile_1["name"]}, a {profile_1["description"]}, from {profile_1["country"]}.")
