@@ -32,7 +32,7 @@ def higher_lower_game():
         while user_selection != "a" and user_selection != "b":
             print("Invalid input")
             user_selection = input("Who has more followers? Type 'A' or 'B': ").lower()
-
+        print("\n" * 20)
         if user_selection == "a":
             user_selection = profile_1
             computer_selection = profile_2
@@ -47,7 +47,7 @@ def higher_lower_game():
             print(f"\nCorrect! Your current score is: {points}.")
             profile_1 = user_selection
         else:
-            print(f"\nSorry. You lose. Final score: {points}.")
+            print(f"\nSorry. You lose. Final score: {points}.\n")
             proceed = False
 
 
