@@ -21,15 +21,19 @@ def is_higher(u_selection: dict, c_selection: dict) -> bool | None:
 
 def higher_lower_game() -> None:
     print(logo)
+
     computer_selection = 0
     user_selection = 0
     points = 0
-    profile_1 = random.choice(data)
+    profile_2 = random.choice(data)
     proceed = True
+
     while proceed:
+        profile_1 = profile_2
         profile_2 = random.choice(data)
         if profile_1 == profile_2:
             profile_2 = random.choice(data)
+
         print(f"Compare A: {format_data(profile_1)}")
         print(vs)
         print(f"\nAgainst B: {format_data(profile_2)}")
@@ -39,7 +43,9 @@ def higher_lower_game() -> None:
         while user_selection != "a" and user_selection != "b":
             print("Invalid input")
             user_selection = input("Who has more followers? Type 'A' or 'B': ").lower()
+
         print("\n" * 20)
+
         if user_selection == "a":
             user_selection = profile_1
             computer_selection = profile_2
@@ -52,7 +58,6 @@ def higher_lower_game() -> None:
         if is_higher(u_selection=user_selection, c_selection=computer_selection):
             points += 1
             print(f"\nCorrect! Your current score is: {points}")
-            profile_1 = user_selection
         else:
             print(f"\nSorry. You lose. Final score: {points}\n")
             proceed = False
