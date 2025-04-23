@@ -4,14 +4,19 @@ from art import logo, vs
 
 
 def format_data(account: dict) -> str:
+    """Accepts a user account as an argument
+       and returns a formatted sentence with the account data"""
+
     account_name = account["name"]
     account_desc = account["description"]
     account_country = account["country"]
     return f"{account_name} a {account_desc} from {account_country}."
 
-# TODO: Refactor this function to take int parameters for followers (u_followers, c_followers)
-    # and return bool as guess == 'a' or guess == 'b'
+
 def is_higher(guess: str, u_followers: int, c_followers: int) -> bool | None:
+    """Accepts user guess, and the number of followers
+       for each account and returns bool which determines if a user is correct or not"""
+
     if u_followers > c_followers:
         return guess == "a"
     else:
@@ -33,12 +38,12 @@ def higher_lower_game() -> None:
         profile_2 = random.choice(data)
         if profile_1 == profile_2:
             profile_2 = random.choice(data)
-        
+
         follower_count_1 = profile_1["follower_count"]
         follower_count_2 = profile_2["follower_count"]
 
-        data_line_1 = format_data(profile_1)
-        data_line_2 = format_data(profile_2)
+        data_line_1 = format_data(account=profile_1)
+        data_line_2 = format_data(account=profile_2)
 
         print(f"Compare A: {data_line_1}")
         print(vs)
@@ -51,10 +56,6 @@ def higher_lower_game() -> None:
             user_selection = input("Who has more followers? Type 'A' or 'B': ").lower()
 
         print("\n" * 20)
-
-        # TODO: Put is_higher() function here with follower_count variables
-
-        
 
         if is_higher(guess=user_selection, u_followers=follower_count_1, c_followers=follower_count_2):
             points += 1
