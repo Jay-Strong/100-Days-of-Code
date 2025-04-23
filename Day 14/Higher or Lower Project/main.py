@@ -3,6 +3,13 @@ from game_data import data
 from art import logo, vs
 
 
+def format_data(account: dict) -> str:
+    account_name = account["name"]
+    account_desc = account["description"]
+    account_country = account["country"]
+    return f"{account_name} a {account_desc} from {account_country}."
+
+
 def is_higher(u_selection: dict, c_selection: dict) -> bool | None:
     if u_selection["follower_count"] > c_selection["follower_count"]:
         return True
@@ -12,7 +19,7 @@ def is_higher(u_selection: dict, c_selection: dict) -> bool | None:
         return None
 
 
-def higher_lower_game():
+def higher_lower_game() -> None:
     print(logo)
     computer_selection = 0
     user_selection = 0
@@ -23,9 +30,9 @@ def higher_lower_game():
         profile_2 = random.choice(data)
         if profile_1 == profile_2:
             profile_2 = random.choice(data)
-        print(f"Compare A: {profile_1["name"]}, a {profile_1["description"]}, from {profile_1["country"]}.")
+        print(f"Compare A: {format_data(profile_1)}")
         print(vs)
-        print(f"\nAgainst B: {profile_2["name"]}, a {profile_2["description"]} from {profile_2["country"]}.")
+        print(f"\nAgainst B: {format_data(profile_2)}.")
 
         user_selection = input("Who has more followers? Type 'A' or 'B': ").lower()
 
@@ -41,7 +48,7 @@ def higher_lower_game():
             computer_selection = profile_1
         else:
             print("Invalid input. Try again.")
-        
+
         if is_higher(u_selection=user_selection, c_selection=computer_selection):
             points += 1
             print(f"\nCorrect! Your current score is: {points}.")
