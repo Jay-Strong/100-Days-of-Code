@@ -16,6 +16,9 @@ def higher_lower_game():
     profile_1 = random.choice(data)
     profile_2 = random.choice(data)
     computer_selection = 0
+    user_selection = 0
+    points = 0
+
 
     print(logo)
     print(f"\nCompare A: {profile_1["name"]}, a {profile_1["description"]}, from {profile_1["country"]}.")
@@ -39,6 +42,8 @@ def higher_lower_game():
     
     if is_higher(u_selection=user_selection, c_selection=computer_selection):
         print("Correct!")
+        points += 1
+        print(f"Your current score is: {points}")
     else:
         print("Sorry. Try again.")
 
