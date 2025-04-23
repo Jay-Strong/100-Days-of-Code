@@ -29,14 +29,18 @@ def higher_lower_game() -> None:
     proceed = True
 
     while proceed:
+
         profile_1 = profile_2
         profile_2 = random.choice(data)
         if profile_1 == profile_2:
             profile_2 = random.choice(data)
 
-        print(f"Compare A: {format_data(profile_1)}")
+        data_1 = format_data(profile_1)
+        data_2 = format_data(profile_2)
+
+        print(f"Compare A: {data_1}")
         print(vs)
-        print(f"\nAgainst B: {format_data(profile_2)}")
+        print(f"\nAgainst B: {data_2}")
 
         user_selection = input("Who has more followers? Type 'A' or 'B': ").lower()
 
