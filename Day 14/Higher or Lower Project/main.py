@@ -26,37 +26,48 @@ def is_higher(guess: str, u_followers: int, c_followers: int) -> bool | None:
 def higher_lower_game() -> None:
     print(logo)
 
-    computer_selection = 0
-    user_selection = 0
-    points = 0
+    # Select a random profile from game data
     profile_2 = random.choice(data)
+    points = 0
     proceed = True
 
+    # Make the game repeatable if the user continues to win.
     while proceed:
 
+        # Shuffle the profiles and select another random profile 
         profile_1 = profile_2
         profile_2 = random.choice(data)
+
+        # If the profiles are identical then profile 2 gets randomized again
         if profile_1 == profile_2:
             profile_2 = random.choice(data)
 
+        # Save the number of followers for the profiles to variables
         follower_count_1 = profile_1["follower_count"]
         follower_count_2 = profile_2["follower_count"]
 
+        # Save the output for the profile data to variables
         data_line_1 = format_data(account=profile_1)
         data_line_2 = format_data(account=profile_2)
 
+        # Display profile comparisons
         print(f"Compare A: {data_line_1}")
         print(vs)
         print(f"\nAgainst B: {data_line_2}")
 
+        # User makes a guess
         user_selection = input("Who has more followers? Type 'A' or 'B': ").lower()
-
+        
+        # Verify user input
         while user_selection != "a" and user_selection != "b":
             print("Invalid input")
             user_selection = input("Who has more followers? Type 'A' or 'B': ").lower()
 
+        # Clear the console
         print("\n" * 20)
 
+        # Decide if the user guessed correctly.
+        # Continue if user guessed correctly. End game otherwise.
         if is_higher(guess=user_selection, u_followers=follower_count_1, c_followers=follower_count_2):
             points += 1
             print(f"\nCorrect! Your current score is: {points}")
