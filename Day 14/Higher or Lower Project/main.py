@@ -45,7 +45,8 @@ def higher_lower_game():
         points += 1
         print(f"Your current score is: {points}")
     else:
-        print("Sorry. Try again.")
+        print("Sorry. You lose.")
+        return
 
 
 higher_lower_game()
