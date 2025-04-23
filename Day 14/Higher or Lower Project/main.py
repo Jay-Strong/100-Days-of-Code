@@ -9,14 +9,13 @@ def format_data(account: dict) -> str:
     account_country = account["country"]
     return f"{account_name} a {account_desc} from {account_country}."
 
-
-def is_higher(u_selection: dict, c_selection: dict) -> bool | None:
-    if u_selection["follower_count"] > c_selection["follower_count"]:
-        return True
-    elif u_selection["follower_count"] < c_selection["follower_count"]:
-        return False
+# TODO: Refactor this function to take int parameters for followers (u_followers, c_followers)
+    # and return bool as guess == 'a' or guess == 'b'
+def is_higher(guess: str, u_followers: int, c_followers: int) -> bool | None:
+    if u_followers > c_followers:
+        return guess == "a"
     else:
-        return None
+        return guess == "b"
 
 
 def higher_lower_game() -> None:
@@ -34,13 +33,16 @@ def higher_lower_game() -> None:
         profile_2 = random.choice(data)
         if profile_1 == profile_2:
             profile_2 = random.choice(data)
+        
+        follower_count_1 = profile_1["follower_count"]
+        follower_count_2 = profile_2["follower_count"]
 
-        data_1 = format_data(profile_1)
-        data_2 = format_data(profile_2)
+        data_line_1 = format_data(profile_1)
+        data_line_2 = format_data(profile_2)
 
-        print(f"Compare A: {data_1}")
+        print(f"Compare A: {data_line_1}")
         print(vs)
-        print(f"\nAgainst B: {data_2}")
+        print(f"\nAgainst B: {data_line_2}")
 
         user_selection = input("Who has more followers? Type 'A' or 'B': ").lower()
 
@@ -50,16 +52,11 @@ def higher_lower_game() -> None:
 
         print("\n" * 20)
 
-        if user_selection == "a":
-            user_selection = profile_1
-            computer_selection = profile_2
-        elif user_selection == "b":
-            user_selection = profile_2
-            computer_selection = profile_1
-        else:
-            print("Invalid input. Try again.")
+        # TODO: Put is_higher() function here with follower_count variables
 
-        if is_higher(u_selection=user_selection, c_selection=computer_selection):
+        
+
+        if is_higher(guess=user_selection, u_followers=follower_count_1, c_followers=follower_count_2):
             points += 1
             print(f"\nCorrect! Your current score is: {points}")
         else:
