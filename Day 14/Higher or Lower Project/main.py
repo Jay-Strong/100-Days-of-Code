@@ -13,15 +13,17 @@ def is_higher(u_selection: dict, c_selection: dict) -> bool | None:
 
 
 def higher_lower_game():
+    print(logo)
     computer_selection = 0
     user_selection = 0
     points = 0
+    profile_1 = random.choice(data)
     proceed = True
     while proceed:
-        profile_1 = random.choice(data)
         profile_2 = random.choice(data)
-        print(logo)
-        print(f"\nCompare A: {profile_1["name"]}, a {profile_1["description"]}, from {profile_1["country"]}.")
+        if profile_1 == profile_2:
+            profile_2 = random.choice(data)
+        print(f"Compare A: {profile_1["name"]}, a {profile_1["description"]}, from {profile_1["country"]}.")
         print(vs)
         print(f"\nAgainst B: {profile_2["name"]}, a {profile_2["description"]} from {profile_2["country"]}.")
 
@@ -41,11 +43,11 @@ def higher_lower_game():
             print("Invalid input. Try again.")
         
         if is_higher(u_selection=user_selection, c_selection=computer_selection):
-            print("Correct!")
             points += 1
-            print(f"Your current score is: {points}")
+            print(f"\nCorrect! Your current score is: {points}.")
+            profile_1 = user_selection
         else:
-            print("Sorry. You lose.")
+            print(f"\nSorry. You lose. Final score: {points}.")
             proceed = False
 
 
