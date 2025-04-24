@@ -2,15 +2,6 @@ from data import MENU, COINS , resources as res
 from art import mug
 print(mug)
 
-# TODO-1: Prompt user by asking “ What would you like? (espresso/latte/cappuccino): ”
-user_selection = input("What would you like? (1-espresso/2-latte/3-cappuccino):\n")
-
-# TODO-2: Turn off the Coffee Machine by entering “ off ” to the prompt.
-
-
-# TODO-3: When the user enters “report” to the prompt, a report should be generated that shows
-# the current resource values.
-
 
 def report() -> None:
     for key, val in res.items():
@@ -20,9 +11,18 @@ def report() -> None:
             print(f"{key.capitalize()}: {val}g")
         else:
             print(f"{key.capitalize()}: ${val:.2f}")
-        
 
-report()
+
+def check_resources(drink: dict) -> bool:
+    if drink[]
+
+
+def coffee_machine() -> None:
+    user_selection = input("What would you like? (1-espresso/2-latte/3-cappuccino):\n")
+    if user_selection == "off":
+        print("Machine turning off...")
+        return
+
 
 # TODO-4: When the user chooses a drink, the program should check if there are enough
 # resources to make that drink.
@@ -36,5 +36,6 @@ report()
 
 
 # TODO-7: Deduct the required ingredients from the coffee machine resources after a successful transaction.
+
 
 # py main.py
