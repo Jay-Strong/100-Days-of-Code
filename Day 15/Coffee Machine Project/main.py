@@ -1,4 +1,4 @@
-from coffee_money_data import MENU, COINS , resources as res
+from data import MENU, COINS , resources as res
 from art import mug
 print(mug)
 
