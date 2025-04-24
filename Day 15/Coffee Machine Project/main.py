@@ -14,7 +14,12 @@ def report() -> None:
 
 
 def check_resources(drink: dict) -> bool:
-    if drink[]
+    if drink["ingredients"]["water"] > res["water"]:
+        return False
+    elif drink["ingredients"]["milk"] > res["milk"]:
+        return False
+    
+
 
 
 def coffee_machine() -> None:
