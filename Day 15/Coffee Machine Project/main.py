@@ -1,5 +1,6 @@
 from coffee_data import MENU, resources as res
 from art import mug
+print(mug)
 
 # TODO-1: Prompt user by asking “ What would you like? (espresso/latte/cappuccino): ”
 user_selection = input("What would you like? (1-espresso/2-latte/3-cappuccino):\n")
