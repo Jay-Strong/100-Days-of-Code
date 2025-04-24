@@ -24,13 +24,17 @@ def check_resources(beverage_type: str) -> str | None:
     else:
         return
     
+def accept_payment(beverage_type: str) -> None:
+    beverage = MENU[beverage_type]
+    payment = 0.0
+    while payment < beverage["cost"]:
+        input("Please insert coins (penny/nickel/dime/quarter): ") 
+        # TODO: Add logic for coin insertion and resource deduction
 
 
-
-def prepare_drink(selected_beverage: str) -> None:
+def process_order(selected_beverage: str) -> None:
     beverage = MENU[selected_beverage]
     check_resources(beverage_type=selected_beverage)
-    # TODO: Add logic for coin insertion and resource deduction
     
     print(f"Preparing your {selected_beverage}...")
 
@@ -43,7 +47,7 @@ def coffee_machine() -> None:
         "3": "cappuccino"
     }
     while True:
-        user_selection = input("What would you like? (1-espresso/2-latte/3-cappuccino):\n").lower()
+        user_selection = input("What would you like? (1-espresso/2-latte/3-cappuccino):").lower()
         if user_selection == "off":
             print("Machine turning off...")
             break
@@ -51,7 +55,7 @@ def coffee_machine() -> None:
             report()
         elif user_selection in drink_options:
             drink_name = drink_options[user_selection]
-            prepare_drink(selected_beverage=drink_name)
+            process_order(selected_beverage=drink_name)
         else:
             print("Input error...Try again")
 
