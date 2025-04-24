@@ -2,7 +2,7 @@ from coffee_data import MENU, resources as res
 from art import mug
 
 # TODO-1: Prompt user by asking “ What would you like? (espresso/latte/cappuccino): ”
-
+user_selection = input("What would you like? (1-espresso/2-latte/3-cappuccino):\n")
 
 # TODO-2: Turn off the Coffee Machine by entering “ off ” to the prompt.
 
@@ -13,10 +13,15 @@ from art import mug
 
 def report() -> None:
     for key, val in res.items():
-        print(f"{key.capitalize()}: {val}")
+        if key == "water" or key == "milk":
+            print(f"{key.capitalize()}: {val}ml")
+        elif key == "coffee":
+            print(f"{key.capitalize()}: {val}g")
+        else:
+            print(f"{key.capitalize()}: ${val:.2f}")
+        
 
 report()
-
 
 # TODO-4: When the user chooses a drink, the program should check if there are enough
 # resources to make that drink.
