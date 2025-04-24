@@ -13,11 +13,15 @@ def report() -> None:
             print(f"{key.capitalize()}: ${val:.2f}")
 
 
-def check_resources(drink: dict) -> bool:
+def is_resources(drink: dict) -> bool:
     if drink["ingredients"]["water"] > res["water"]:
         return False
     elif drink["ingredients"]["milk"] > res["milk"]:
         return False
+    elif drink["ingredients"]["coffee"] > res["coffee"]:
+        return False
+    else:
+        return True
     
 
 
