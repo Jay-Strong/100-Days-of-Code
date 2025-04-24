@@ -13,24 +13,42 @@ def report() -> None:
             print(f"{key.capitalize()}: ${val:.2f}")
 
 
-def is_resources(drink: dict) -> bool:
-    if drink["ingredients"]["water"] > res["water"]:
-        return False
-    elif drink["ingredients"]["milk"] > res["milk"]:
-        return False
-    elif drink["ingredients"]["coffee"] > res["coffee"]:
-        return False
+def check_resources(beverage_type: str) -> str:
+    beverage = MENU[beverage_type]
+    if beverage["ingredients"]["water"] > res["water"]:
+        return f"Sorry, there is not enough water to make {beverage}."
+    elif beverage["ingredients"]["milk"] > res["milk"]:
+        return f"Sorry, there is not enough milk to make {beverage}."
+    elif beverage["ingredients"]["coffee"] > res["coffee"]:
+        return f"Sorry, there is not enough coffee to make {beverage}."
     else:
-        return True
+        return f"Preparing your {beverage_type} now..."
     
-
-
+def prepare_drink(drink_name: str) -> None:
+    drink = MENU[drink_name]
+    check_resources(beverage_type=drink_name)
 
 def coffee_machine() -> None:
-    user_selection = input("What would you like? (1-espresso/2-latte/3-cappuccino):\n")
-    if user_selection == "off":
-        print("Machine turning off...")
-        return
+    while True:
+        user_selection = input("What would you like? (1-espresso/2-latte/3-cappuccino):\n")
+        if user_selection == "off":
+            print("Machine turning off...")
+            return
+        elif user_selection == "report":
+            report()
+            continue
+        elif user_selection == "1":
+            user_selection = "espresso"
+            # More code
+        elif user_selection == "2":
+            user_selection = "latte"
+            # More code
+        elif user_selection == "3":
+            user_selection = "cappuccino"
+            # More code  
+        else:
+            print("Input error...Try again")
+            continue
 
 
 # TODO-4: When the user chooses a drink, the program should check if there are enough
