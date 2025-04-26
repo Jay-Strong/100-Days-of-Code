@@ -1,7 +1,7 @@
 from data import MENU, COINS , resources as res
 from art import mug
 print(mug)
-
+print("Welcome to Python Cafe!\n")
 
 def report() -> None:
     for key, val in res.items():
