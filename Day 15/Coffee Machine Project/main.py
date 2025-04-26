@@ -19,16 +19,16 @@ def is_resources(beverage_type: str) -> bool:
     beverage = MENU[beverage_type]
 
     if beverage["ingredients"]["water"] > res["water"]:
-        print(f"Sorry, there is not enough water to make {beverage_type}.")
+        print(f"Sorry, there is not enough water to make a {beverage_type}.")
         return False
     
     if beverage["ingredients"]["coffee"] > res["coffee"]:
-        print(f"Sorry, there is not enough coffee to make {beverage_type}.")
+        print(f"Sorry, there is not enough coffee to make a {beverage_type}.")
         return False
     
     if beverage_type == "latte" or beverage_type == "cappuccino":
         if beverage["ingredients"]["milk"] > res["milk"]:
-            print(f"Sorry, there is not enough milk to make {beverage_type}.")
+            print(f"Sorry, there is not enough milk to make a {beverage_type}.")
             return False
     print(f"You have selected {beverage_type}.")  
     return True
@@ -61,7 +61,7 @@ def accept_payment(beverage_type: str) -> bool:
     print(f"Please pay ${price:.2f}")
 
     while True:
-       coin_deposit = input(f"Please insert ${price - payment:.2f} coins. (/1-penny/2-nickel/3-dime/4-quarter) Type '0' after all coins are in: ")
+       coin_deposit = input(f"Please insert ${price - payment:.2f} coins. (1-penny/2-nickel/3-dime/4-quarter) Type '0' after all coins are in: ")
        if coin_deposit == "0":
            
            if round(payment, 2) < round(price, 2):
