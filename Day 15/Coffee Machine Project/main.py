@@ -4,6 +4,7 @@ print(mug)
 print("Welcome to Python Cafe!\n")
 
 def report() -> None:
+
     for key, val in res.items():
         if key == "water" or key == "milk":
             print(f"{key.capitalize()}: {val}ml")
@@ -14,6 +15,7 @@ def report() -> None:
 
 
 def is_resources(beverage_type: str) -> bool:
+
     beverage = MENU[beverage_type]
 
     if beverage["ingredients"]["water"] > res["water"]:
@@ -31,8 +33,20 @@ def is_resources(beverage_type: str) -> bool:
     print(f"You have selected {beverage_type}.")  
     return True
 
+
+def deduct_resources(beverage_type: str) -> None:
+
+    beverage = MENU[beverage_type]
+
+    res["coffee"] -= beverage["ingredients"]["coffee"]
+    res["water"] -= beverage["ingredients"]["water"]
     
+    if beverage_type == "latte" or beverage_type == "cappuccino":
+        res["milk"] -= beverage["ingredients"]["milk"]
+
+ 
 def accept_payment(beverage_type: str) -> bool:
+
     beverage = MENU[beverage_type]
     payment = 0.0
     change = 0.0
@@ -49,6 +63,7 @@ def accept_payment(beverage_type: str) -> bool:
     while True:
        coin_deposit = input(f"Please insert ${price - payment:.2f} coins. (/1-penny/2-nickel/3-dime/4-quarter) Type '0' after all coins are in: ")
        if coin_deposit == "0":
+           
            if round(payment, 2) < round(price, 2):
                print(f"Sorry, not enough money...${payment:.2f} refunded.")
                return False
@@ -61,6 +76,7 @@ def accept_payment(beverage_type: str) -> bool:
            else:
                 res["money"] += payment
                 return True
+           
        elif coin_deposit in coin_options:
            coin = coin_options[coin_deposit]
            payment += COINS[coin]
@@ -68,15 +84,16 @@ def accept_payment(beverage_type: str) -> bool:
            print("Invalid input...Try again.")
            continue
            
-    
-    # TODO: Add logic for coin insertion, payment verification, and resource deduction
-
 
 def process_order(selected_beverage: str) -> None:
+
     beverage = MENU[selected_beverage]
+
     if is_resources(beverage_type=selected_beverage):
         print("We can do that!")
+
         if accept_payment(beverage_type=selected_beverage):
+            deduct_resources(beverage_type=selected_beverage)
             print(f"Here is your {selected_beverage}...Enjoy!")
 
 
@@ -101,14 +118,5 @@ def coffee_machine() -> None:
             print("Input error...Try again")
 
 coffee_machine()
-# TODO-5: If there are sufficient resources to make the drink selected, then the program should
-# prompt the user to insert coins.
-
-
-# TODO-6: Check that the user has inserted enough money to purchase the drink they selected.
-
-
-# TODO-7: Deduct the required ingredients from the coffee machine resources after a successful transaction.
-
 
 # py main.py
