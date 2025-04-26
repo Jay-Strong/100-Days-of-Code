@@ -68,7 +68,6 @@ def accept_payment(beverage_type: str) -> bool:
     change = round(payment - price, 2)
     res["money"] += price  # Add the exact price to the machine's money
     if change > 0:
-        res["money"] -= change
         print(f"Here is your ${change:.2f} in change.")
     return True
            
