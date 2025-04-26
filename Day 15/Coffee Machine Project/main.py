@@ -35,8 +35,8 @@ def is_resources(beverage_type: str) -> bool:
 def deduct_resources(beverage_type: str) -> None:
     ingredients = MENU[beverage_type]["ingredients"]
 
-    for item, deduct_resources in ingredients.items():
-        res[item] -= deduct_resources
+    for item, deduct_amount in ingredients.items():
+        res[item] -= deduct_amount
 
 
  
@@ -68,6 +68,7 @@ def accept_payment(beverage_type: str) -> bool:
     change = round(payment - price, 2)
     res["money"] += price  # Add the exact price to the machine's money
     if change > 0:
+        res["money"] -= change
         print(f"Here is your ${change:.2f} in change.")
     return True
            
