@@ -32,26 +32,60 @@ def is_resources(beverage_type: str) -> bool:
     return True
 
     
-def accept_payment(beverage_type: str) -> None:
+def accept_payment(beverage_type: str) -> bool:
     beverage = MENU[beverage_type]
     payment = 0.0
-    price = f"${beverage["cost:"]:.2f}"
-    while payment < beverage["cost"]:
-        input(f"Please insert {price} (penny/nickel/dime/quarter): ") 
-        # TODO: Add logic for coin insertion, resource deduction
+    change = 0.0
+    price = beverage["cost"]
+    coin_options = {
+        "1": "penny",
+        "2": "nickel",
+        "3": "dime",
+        "4": "quarter",
+    }
+
+    print(f"Please pay ${price:.2f}")
+
+    while True:
+       coin_deposit = input(f"Please insert ${price - payment:.2f} coins. (/1-penny/2-nickel/3-dime/4-quarter) Type '0' after all coins are in: ")
+       if coin_deposit == "0":
+           if round(payment, 2) < round(price, 2):
+               print(f"Sorry, not enough money...${payment:.2f} refunded.")
+               return False
+           elif round(payment, 2) > round(price, 2):
+                change = payment - price
+                payment -= change
+                res["money"] += payment
+                print(f"here is your ${change:.2f} in change.")
+                return True
+           else:
+                res["money"] += payment
+                return True
+       elif coin_deposit in coin_options:
+           coin = coin_options[coin_deposit]
+           payment += COINS[coin]
+       else:
+           print("Invalid input...Try again.")
+           continue
+           
+    
+    # TODO: Add logic for coin insertion, payment verification, and resource deduction
 
 
 def process_order(selected_beverage: str) -> None:
     beverage = MENU[selected_beverage]
     if is_resources(beverage_type=selected_beverage):
-        print("Hooray!")
+        print("We can do that!")
+        if accept_payment(beverage_type=selected_beverage):
+            print(f"Here is your {selected_beverage}...Enjoy!")
+
 
 
 def coffee_machine() -> None:
     drink_options = {
         "1": "espresso",
         "2": "latte",
-        "3": "cappuccino"
+        "3": "cappuccino",
     }
     while True:
         user_selection = input("What would you like? (1-espresso/2-latte/3-cappuccino):").lower()
