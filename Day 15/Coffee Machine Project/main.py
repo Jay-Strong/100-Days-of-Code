@@ -35,9 +35,9 @@ def is_resources(beverage_type: str) -> bool:
 def deduct_resources(beverage_type: str) -> None:
     ingredients = MENU[beverage_type]["ingredients"]
 
-    for item, required_amount in ingredients.items():
-        if required_amount > res[item]:
-            print(f"Sorry, there is not enough {item} to make a {beverage_type}")
+    for item, deduct_resources in ingredients.items():
+        res[item] -= deduct_resources
+
 
  
 def accept_payment(beverage_type: str) -> bool:
