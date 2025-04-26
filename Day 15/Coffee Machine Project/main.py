@@ -93,7 +93,7 @@ def process_order(selected_beverage: str) -> None:
 
         if accept_payment(beverage_type=selected_beverage):
             deduct_resources(beverage_type=selected_beverage)
-            print(f"Here is your {selected_beverage}...Enjoy!")
+            print(f"Here is your {selected_beverage}☕...Enjoy!")
 
 
 
