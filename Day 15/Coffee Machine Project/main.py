@@ -82,7 +82,6 @@ def accept_payment(beverage_type: str) -> bool:
            payment += COINS[coin]
        else:
            print("Invalid input...Try again.")
-           continue
            
 
 def process_order(selected_beverage: str) -> None:
