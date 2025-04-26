@@ -4,45 +4,45 @@ print(mug)
 print("Welcome to Python Cafe!\n")
 
 def report() -> None:
+    units = {
+        "water": "ml",
+        "milk": "ml",
+        "coffee": "g",
+        "money": "$",
+
+    }
 
     for key, val in res.items():
-        if key == "water" or key == "milk":
-            print(f"{key.capitalize()}: {val}ml")
-        elif key == "coffee":
-            print(f"{key.capitalize()}: {val}g")
+        unit = units.get(key, "")
+        if key == "money":
+            print(f"{key.capitalize()}: {unit}{val:.2f}")
         else:
-            print(f"{key.capitalize()}: ${val:.2f}")
+            print(f"{key.capitalize()}: {val}{unit}")
 
 
 def is_resources(beverage_type: str) -> bool:
+    ingredients = MENU[beverage_type]["ingredients"]
 
-    beverage = MENU[beverage_type]
-
-    if beverage["ingredients"]["water"] > res["water"]:
-        print(f"Sorry, there is not enough water to make a {beverage_type}.")
-        return False
-    
-    if beverage["ingredients"]["coffee"] > res["coffee"]:
-        print(f"Sorry, there is not enough coffee to make a {beverage_type}.")
-        return False
-    
-    if beverage_type == "latte" or beverage_type == "cappuccino":
-        if beverage["ingredients"]["milk"] > res["milk"]:
-            print(f"Sorry, there is not enough milk to make a {beverage_type}.")
+    for item, required_amount in ingredients.items():
+        if required_amount > res[item]:
+            print(f"Sorry, there is not enough {item} to make a {beverage_type}.")
             return False
-    print(f"You have selected {beverage_type}.")  
+
+    print(f"You have selected {beverage_type}.")
     return True
 
 
 def deduct_resources(beverage_type: str) -> None:
 
-    beverage = MENU[beverage_type]
+    water = MENU[beverage_type]["ingredients"]["water"]
+    milk = MENU[beverage_type]["ingredients"]["milk"]
+    coffee = MENU[beverage_type]["ingredients"]["coffee"]
 
-    res["coffee"] -= beverage["ingredients"]["coffee"]
-    res["water"] -= beverage["ingredients"]["water"]
+    res["coffee"] -= coffee
+    res["water"] -= water
     
     if beverage_type == "latte" or beverage_type == "cappuccino":
-        res["milk"] -= beverage["ingredients"]["milk"]
+        res["milk"] -= milk
 
  
 def accept_payment(beverage_type: str) -> bool:
@@ -86,8 +86,6 @@ def accept_payment(beverage_type: str) -> bool:
 
 def process_order(selected_beverage: str) -> None:
 
-    beverage = MENU[selected_beverage]
-
     if is_resources(beverage_type=selected_beverage):
         print("We can do that!")
 
@@ -98,11 +96,13 @@ def process_order(selected_beverage: str) -> None:
 
 
 def coffee_machine() -> None:
+
     drink_options = {
         "1": "espresso",
         "2": "latte",
         "3": "cappuccino",
     }
+
     while True:
         user_selection = input("What would you like? (1-espresso/2-latte/3-cappuccino):").lower()
         if user_selection == "off":
@@ -116,6 +116,8 @@ def coffee_machine() -> None:
         else:
             print("Input error...Try again")
 
+
 coffee_machine()
+
 
 # py main.py
