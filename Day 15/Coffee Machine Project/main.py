@@ -13,30 +13,36 @@ def report() -> None:
             print(f"{key.capitalize()}: ${val:.2f}")
 
 
-def check_resources(beverage_type: str) -> str | None:
+def is_resources(beverage_type: str) -> bool:
     beverage = MENU[beverage_type]
     if beverage["ingredients"]["water"] > res["water"]:
-        return f"Sorry, there is not enough water to make {beverage_type}."
+        f"Sorry, there is not enough water to make {beverage_type}."
+        return False
     elif beverage["ingredients"]["milk"] > res["milk"]:
-        return f"Sorry, there is not enough milk to make {beverage_type}."
+        f"Sorry, there is not enough milk to make {beverage_type}."
+        return False
     elif beverage["ingredients"]["coffee"] > res["coffee"]:
-        return f"Sorry, there is not enough coffee to make {beverage_type}."
+        f"Sorry, there is not enough coffee to make {beverage_type}."
+        return False
     else:
-        return
+        print(f"PYou have selected {beverage_type}.")
+        return True
     
 def accept_payment(beverage_type: str) -> None:
     beverage = MENU[beverage_type]
     payment = 0.0
+    price = f"${beverage["cost:"]:.2f}"
     while payment < beverage["cost"]:
-        input("Please insert coins (penny/nickel/dime/quarter): ") 
-        # TODO: Add logic for coin insertion and resource deduction
+        input(f"Please insert {price} (penny/nickel/dime/quarter): ") 
+        # TODO: Add logic for coin insertion, resource deduction
 
 
 def process_order(selected_beverage: str) -> None:
     beverage = MENU[selected_beverage]
-    check_resources(beverage_type=selected_beverage)
+    if is_resources(beverage_type=selected_beverage):
+
     
-    print(f"Preparing your {selected_beverage}...")
+    
 
     
 
