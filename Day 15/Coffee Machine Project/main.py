@@ -17,20 +17,19 @@ def is_resources(beverage_type: str) -> bool:
     beverage = MENU[beverage_type]
 
     if beverage["ingredients"]["water"] > res["water"]:
-        f"Sorry, there is not enough water to make {beverage_type}."
+        print(f"Sorry, there is not enough water to make {beverage_type}.")
         return False
     
     if beverage["ingredients"]["coffee"] > res["coffee"]:
-        f"Sorry, there is not enough coffee to make {beverage_type}."
+        print(f"Sorry, there is not enough coffee to make {beverage_type}.")
         return False
     
     if beverage_type == "latte" or beverage_type == "cappuccino":
         if beverage["ingredients"]["milk"] > res["milk"]:
-            f"Sorry, there is not enough milk to make {beverage_type}."
+            print(f"Sorry, there is not enough milk to make {beverage_type}.")
             return False
-        
+    print(f"You have selected {beverage_type}.")  
     return True
-
 
     
 def accept_payment(beverage_type: str) -> None:
@@ -47,10 +46,6 @@ def process_order(selected_beverage: str) -> None:
     if is_resources(beverage_type=selected_beverage):
         print("Hooray!")
 
-    
-    
-
-    
 
 def coffee_machine() -> None:
     drink_options = {
