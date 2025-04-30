@@ -4,6 +4,8 @@ print(mug)
 print("Welcome to Python Cafe!\n")
 
 def report() -> None:
+    """Prints the current state of the Resources dictionary"""
+
     units = {
         "water": "ml",
         "milk": "ml",
@@ -21,6 +23,8 @@ def report() -> None:
 
 
 def is_resources(beverage_type: str) -> bool:
+    """Returns 'True' if resources are sufficient, and 'False' otherwise."""
+
     ingredients = MENU[beverage_type]["ingredients"]
 
     for item, required_amount in ingredients.items():
@@ -33,14 +37,20 @@ def is_resources(beverage_type: str) -> bool:
 
 
 def deduct_resources(beverage_type: str) -> None:
+    """Reduces the values in the resources dict by the values specified in 'cost' 
+       within the items listed in the MENU dict"""
+
     ingredients = MENU[beverage_type]["ingredients"]
 
     for item, deduct_amount in ingredients.items():
         res[item] -= deduct_amount
 
-
  
 def accept_payment(beverage_type: str) -> bool:
+    """Accepts input from the user specifying a selection from coin_values dict 
+       as a form of payment. Returns 'True' if the transaction is successful and 
+       'False' otherwise"""
+    
     beverage = MENU[beverage_type]
     price = beverage["cost"]
     payment = 0.0
