@@ -6,10 +6,21 @@ cm = CoffeeMaker()
 mm = MoneyMachine()
 mu = Menu()
 
-cm.report()
-mm.report()
-menu_items = mu.get_items()
-print(menu_items)
+is_on = True
+
+while is_on:
+    user_choice = input(f"What would you like? {mu.get_items()}: ")
+
+    if user_choice == "off":
+        print("Machine turning off...")
+        is_on = False
+    elif user_choice == "report":
+        cm.report()
+        mm.report()
+    else:
+        item = mu.find_drink(user_choice)
+        print(item.name)
+        print(item.cost)
 
 
 # py main.py
