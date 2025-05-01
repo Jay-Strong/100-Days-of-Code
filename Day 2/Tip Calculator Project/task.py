@@ -5,3 +5,5 @@ people = int(input("How many people to split the bill? "))
 
 payment = (bill * ((tip / 100) + 1) / people)
 print(f"Each person should pay: ${payment:.2f}")
+
+# py task.py

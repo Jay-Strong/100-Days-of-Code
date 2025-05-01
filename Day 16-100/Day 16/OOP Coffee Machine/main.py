@@ -9,7 +9,8 @@ mu = Menu()
 is_on = True
 
 while is_on:
-    user_choice = input(f"What would you like? {mu.get_items()}: ")
+    options = mu.get_items()
+    user_choice = input(f"What would you like? ({options}): ")
 
     if user_choice == "off":
         print("Machine turning off...")
