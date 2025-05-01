@@ -13,7 +13,7 @@ def format_data(account: dict) -> str:
     return f"{account_name} a {account_desc} from {account_country}."
 
 
-def is_higher(guess: str, u_followers: int, c_followers: int) -> bool | None:
+def is_higher(guess: str, u_followers: int, c_followers: int) -> bool:
     """Accepts user guess, and the number of followers
        for each account and returns bool which determines if a user is correct or not"""
 
