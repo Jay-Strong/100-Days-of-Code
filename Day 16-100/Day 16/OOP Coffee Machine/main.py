@@ -19,8 +19,12 @@ while is_on:
         mm.report()
     else:
         item = mu.find_drink(user_choice)
-        print(item.name)
-        print(item.cost)
+        if item != None:
+           if cm.is_resource_sufficient(item):
+               print("We can do that! 😁")
+               if mm.make_payment(item.cost):
+                   cm.make_coffee(item)
+
 
 
 # py main.py
