@@ -7,3 +7,5 @@ def format_name(f_name, l_name):
 
 
 print(format_name(input("What is your first name?"), input("What is your last name?")))
+
+# py solution.py
