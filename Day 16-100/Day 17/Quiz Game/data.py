@@ -1,87 +1,85 @@
 question_data = [
-        {
-            "type": "boolean",
-            "difficulty": "easy",
-            "category": "Mythology",
-            "question": "In the Greek Mythology, the god of war is called Mars.",
-            "correct_answer": "False",
-            "incorrect_answers": ["True"]
-        },
-        {
-            "type": "boolean",
-            "difficulty": "easy",
-            "category": "Entertainment: Japanese Anime & Manga",
-            "question": "In Kill La Kill, the weapon of the main protagonist is a katana.",
-            "correct_answer": "False",
-            "incorrect_answers": ["True"]
-        },
-        {
-            "type": "boolean",
-            "difficulty": "easy",
-            "category": "Entertainment: Video Games",
-            "question": "In Team Fortress 2, the weapon 'Your Eternal Reward' is a reference to the 1992 film Aladdin.",
-            "correct_answer": "True",
-            "incorrect_answers": ["False"]
-        },
-        {
-            "type": "boolean",
-            "difficulty": "easy",
-            "category": "Entertainment: Video Games",
-            "question": "Faust is a playable character in 'Guilty Gear Xrd Revelator'.",
-            "correct_answer": "True",
-            "incorrect_answers": ["False"]
-        },
-        {
-            "type": "boolean",
-            "difficulty": "easy",
-            "category": "Entertainment: Japanese Anime & Manga",
-            "question": "The name of the attack 'Kamehameha' in Dragon Ball Z was named after a famous king of Hawaii.",
-            "correct_answer": "True",
-            "incorrect_answers": ["False"]
-        },
-        {
-            "type": "boolean",
-            "difficulty": "easy",
-            "category": "Entertainment: Film",
-            "question": "The movie 'The Nightmare before Christmas' was all done with physical objects.",
-            "correct_answer": "True",
-            "incorrect_answers": ["False"]
-        },
-        {
-            "type": "boolean",
-            "difficulty": "easy",
-            "category": "Entertainment: Music",
-            "question": "Lead Singer Rivers Cuomo of American rock band Weezer attended Harvard.",
-            "correct_answer": "True",
-            "incorrect_answers": ["False"]
-        },
-        {
-            "type": "boolean",
-            "difficulty": "easy",
-            "category": "Entertainment: Video Games",
-            "question": "Peter Molyneux was the founder of Bullfrog Productions.",
-            "correct_answer": "True",
-            "incorrect_answers": ["False"]
-        },
-        {
-            "type": "boolean",
-            "difficulty": "easy",
-            "category": "Entertainment: Television",
-            "question": "In Battlestar Galactica (2004), Cylons were created by man as cybernetic workers and soldiers.",
-            "correct_answer": "True",
-            "incorrect_answers": ["False"]
-        },
-        {
-            "type": "boolean",
-            "difficulty": "easy",
-            "category": "Animals",
-            "question": "The freshwater amphibian, the Axolotl, can regrow its limbs.",
-            "correct_answer": "True",
-            "incorrect_answers": ["False"]
-        },
-    ]
-
-
+    {
+        "type": "boolean",
+        "difficulty": "easy",
+        "category": "General Knowledge",
+        "question": "The National Animal of Scotland is the Unicorn.",
+        "correct_answer": "True",
+        "incorrect_answers": ["False"]
+    },
+    {
+        "type": "boolean",
+        "difficulty": "easy",
+        "category": "General Knowledge",
+        "question": "Dihydrogen Monoxide is a dangerous chemical.",
+        "correct_answer": "False",
+        "incorrect_answers": ["True"]
+    },
+    {
+        "type": "boolean",
+        "difficulty": "easy",
+        "category": "General Knowledge",
+        "question": "You can legally drink alcohol while driving in Mississippi.",
+        "correct_answer": "True",
+        "incorrect_answers": ["False"]
+    },
+    {
+        "type": "boolean",
+        "difficulty": "easy",
+        "category": "General Knowledge",
+        "question": "In architecture, a 'pecklesteiner' is a set of doors that overlap each other when closed, and can be locked through a single keyhole.",
+        "correct_answer": "False",
+        "incorrect_answers": ["True"]
+    },
+    {
+        "type": "boolean",
+        "difficulty": "easy",
+        "category": "General Knowledge",
+        "question": "Jingle Bells was originally meant for Thanksgiving",
+        "correct_answer": "True",
+        "incorrect_answers": ["False"]
+    },
+    {
+        "type": "boolean",
+        "difficulty": "easy",
+        "category": "General Knowledge",
+        "question": "March 10th is also known as Mar10 Day.",
+        "correct_answer": "True",
+        "incorrect_answers": ["False"]
+    },
+    {
+        "type": "boolean",
+        "difficulty": "easy",
+        "category": "General Knowledge",
+        "question": "The color orange is named after the fruit.",
+        "correct_answer": "True",
+        "incorrect_answers": ["False"]
+    },
+    {
+        "type": "boolean",
+        "difficulty": "easy",
+        "category": "General Knowledge",
+        "question": "'Ananas' is mostly used as the word for Pineapple in other languages.",
+        "correct_answer": "True",
+        "incorrect_answers": ["False"]
+    },
+    {
+        "type": "boolean",
+        "difficulty": "easy",
+        "category": "General Knowledge",
+        "question": "It is automatically considered entrapment in the United States if the police sell you illegal substances without revealing themselves.",
+        "correct_answer": "False",
+        "incorrect_answers": ["True"]
+    },
+    {
+        "type": "boolean",
+        "difficulty": "easy",
+        "category": "General Knowledge",
+        "question": "In 2010, Twitter and the United States Library of Congress partnered together to archive every tweet by American citizens.",
+        "correct_answer": "True",
+        "incorrect_answers": ["False"]
+    }
+]
 
 
 
