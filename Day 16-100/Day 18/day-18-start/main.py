@@ -26,10 +26,24 @@ def draw_shape(num_sides: int) -> None:
         tim.left(angle)
 
 
+def draw_dashed_line() -> None:
+    for _ in range(15):
+        tim.forward(10)
+        tim.penup()
+        tim.forward(10)
+        tim.pendown()
+
+
+def random_walk() -> None:
+    tim.speed(10)
+    tim.width(10)
+    
+   
+
 # draw_dashed_line()
 
-for i in range(3, 11):
-    draw_shape(i)
+# for i in range(3, 11):
+#     draw_shape(i)
 
 
 my_screen.exitonclick()
