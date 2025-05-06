@@ -9,7 +9,7 @@ screen = t.Screen()
 t.colormode(255)
 
 
-def select_random_color() -> tuple:
+def random_color() -> tuple:
     color_code = []
     for _ in range(3):
         num = randint(0, screen.colormode())
@@ -18,7 +18,7 @@ def select_random_color() -> tuple:
 
 
 def draw_shape(num_sides: int) -> None:
-    color = select_random_color()
+    color = random_color()
     tim.pencolor(color)
     angle = 360 / num_sides
     for _ in range(num_sides):
@@ -39,12 +39,19 @@ def random_walk() -> None:
     tim.speed(0)
     tim.width(15)
     for i in range(250):
-        tim.pencolor(select_random_color())
+        tim.pencolor(random_color())
         tim.seth(choice(directions))
         tim.forward(30)
     tim.penup()
     tim.home()
 
+
+def spirograph(gap: int) -> None:
+    tim.speed(0)
+    for i in range(0, 361, gap):
+        tim.pencolor(random_color())
+        tim.seth(i)
+        tim.circle(100)
 
 
 # draw_dashed_line()
@@ -52,7 +59,9 @@ def random_walk() -> None:
 # for i in range(3, 11):
 #     draw_shape(i)
 
-random_walk()
+# random_walk()
+
+spirograph(5)
 
 screen.exitonclick()
 
