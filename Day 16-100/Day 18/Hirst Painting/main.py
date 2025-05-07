@@ -13,12 +13,6 @@ screen = t.Screen()
 
 tom.teleport(-362, -325)
 
-
-
-
-
-
-
 screen.exitonclick()
 
 # py main.py
