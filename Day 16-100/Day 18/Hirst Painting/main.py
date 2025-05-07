@@ -10,8 +10,8 @@ color_list = [(204, 159, 107), (231, 213, 109), (134, 168, 192), (44, 105, 144),
 t.colormode(255)
 tom = t.Turtle()
 screen = t.Screen()
-tom.penup()
-tom.teleport(-362, -345)
+
+tom.teleport(-362, -325)
 
 
 
