@@ -9,35 +9,21 @@ color_list = [(204, 159, 107), (231, 213, 109), (134, 168, 192), (44, 105, 144),
               (60, 21, 36), (14, 96, 71)]
 
 
-headings = {
-    "east": 0,
-    "north": 90,
-    "west": 180,
-    "south": 270,
-}
-
-def dots() -> None:
-    for _ in range(10):
-            color = r.choice(color_list)
-            tom.dot(20, color)
-            tom.forward(50)
-
-def hirst_painting() -> None:
+def hirst_painting(rows=10, cols=10) -> None:
     tom.hideturtle()
     tom.penup()
     tom.speed(0)
     tom.teleport(-230, -300)
-    for _ in range(5):
-        dots()
-        tom.seth(headings["north"])
-        tom.forward(68)
-        tom.seth(headings["west"])
+    for row in range(rows):
+        for col in range(cols):
+            color = r.choice(color_list)
+            tom.dot(20, color)
+            tom.forward(50)
+        # Move to the start of the next row
+        tom.backward(50 * cols)
+        tom.left(90)
         tom.forward(50)
-        dots()
-        tom.seth(headings["north"])
-        tom.forward(68)
-        tom.seth(headings["east"])
-        tom.forward(50)
+        tom.right(90)
     tom.home()
 
 
