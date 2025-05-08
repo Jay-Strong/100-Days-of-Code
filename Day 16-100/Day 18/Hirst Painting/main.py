@@ -9,23 +9,36 @@ color_list = [(204, 159, 107), (231, 213, 109), (134, 168, 192), (44, 105, 144),
               (60, 21, 36), (14, 96, 71)]
 
 
-def hirst_painting() -> None:
-    tom.speed(0)
-    tom.teleport(-359, -325)
+headings = {
+    "east": 0,
+    "north": 90,
+    "west": 180,
+    "south": 270,
+}
+
+def dots() -> None:
     for _ in range(10):
-        for _ in range(10):
             color = r.choice(color_list)
-            tom.pendown()
-            tom.dot(48, color)
-            tom.penup()
-            tom.forward(79)
-        tom.penup()
-        tom.back(790)
-        tom.left(90)
-        tom.forward(73)
-        tom.right(90)
-    tom.home()
+            tom.dot(20, color)
+            tom.forward(50)
+
+def hirst_painting() -> None:
     tom.hideturtle()
+    tom.penup()
+    tom.speed(0)
+    tom.teleport(-230, -300)
+    for _ in range(5):
+        dots()
+        tom.seth(headings["north"])
+        tom.forward(68)
+        tom.seth(headings["west"])
+        tom.forward(50)
+        dots()
+        tom.seth(headings["north"])
+        tom.forward(68)
+        tom.seth(headings["east"])
+        tom.forward(50)
+    tom.home()
 
 
 t.colormode(255)
