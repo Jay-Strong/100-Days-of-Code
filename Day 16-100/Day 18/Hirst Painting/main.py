@@ -1,6 +1,25 @@
 import turtle as t
 import random as r
 
+def hirst_painting() -> None:
+    tom.speed(0)
+    tom.teleport(-362, -325)
+    for _ in range(10):
+        for _ in range(10):
+            color = r.choice(color_list)
+            tom.pendown()
+            tom.dot(50, color)
+            tom.penup()
+            tom.forward(79)
+        tom.penup()
+        tom.back(790)
+        tom.left(90)
+        tom.forward(72)
+        tom.right(90)
+    tom.home()
+    tom.hideturtle()
+
+
 color_list = [(204, 159, 107), (231, 213, 109), (134, 168, 192), (44, 105, 144), (152, 78, 53), (199, 142, 164), 
               (15, 32, 53), (181, 159, 42), (148, 65, 87), (141, 178, 155), (205, 91, 70), (64, 117, 92), 
               (195, 89, 118), (225, 170, 187), (15, 38, 27), (59, 34, 19), (227, 175, 166), (48, 158, 182), 
@@ -11,7 +30,8 @@ t.colormode(255)
 tom = t.Turtle()
 screen = t.Screen()
 
-tom.teleport(-362, -325)
+hirst_painting()
+
 
 screen.exitonclick()
 
