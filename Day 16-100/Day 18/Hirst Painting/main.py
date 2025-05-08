@@ -11,18 +11,18 @@ color_list = [(204, 159, 107), (231, 213, 109), (134, 168, 192), (44, 105, 144),
 
 def hirst_painting() -> None:
     tom.speed(0)
-    tom.teleport(-362, -325)
+    tom.teleport(-359, -325)
     for _ in range(10):
         for _ in range(10):
             color = r.choice(color_list)
             tom.pendown()
-            tom.dot(50, color)
+            tom.dot(48, color)
             tom.penup()
             tom.forward(79)
         tom.penup()
         tom.back(790)
         tom.left(90)
-        tom.forward(72)
+        tom.forward(73)
         tom.right(90)
     tom.home()
     tom.hideturtle()
