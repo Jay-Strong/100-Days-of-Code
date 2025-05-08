@@ -2,6 +2,7 @@ from turtle import Turtle, Screen
 
 tim = Turtle()
 screen = Screen()
+screen.title("Etch-A-Sketch")
 
 def forward():
     tim.forward(10)
