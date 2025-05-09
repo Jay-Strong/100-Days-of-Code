@@ -1,7 +1,7 @@
 import turtle
 
 class Snake:
-    def __init__(self):
+    def __init__(self) -> None:
         self.segments = []
 
         for num in range(3):
