@@ -9,8 +9,7 @@ class Food(Turtle):
         self.penup()
         self.color("blue")
         self.speed(0)
-        x_coord = ri(-575, 575)
-        y_coord = ri(-575, 575)
-        self.goto(x_coord, y_coord)
+        self.new_location = (ri(-280, 280), ri(-280, 280))
+        self.goto(self.new_location)
 
 # py food.py
