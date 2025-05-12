@@ -9,6 +9,9 @@ class Food(Turtle):
         self.penup()
         self.color("blue")
         self.speed(0)
+        self.refresh()
+
+    def refresh(self) -> None:
         self.new_location = (ri(-280, 280), ri(-280, 280))
         self.goto(self.new_location)
 

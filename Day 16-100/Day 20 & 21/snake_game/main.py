@@ -22,9 +22,8 @@ while game_is_on:
     screen.update()
     time.sleep(0.1)
     snake.move_snake()
-    if snake.head.distance(food) < 15:
-        food.new_location = (ri(-280, 280), ri(-280, 280))
-        food.goto(food.new_location)
+    if snake.head.distance(food) < 18:
+        food.refresh()
    
     
 
