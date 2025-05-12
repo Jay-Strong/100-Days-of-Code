@@ -28,6 +28,7 @@ while game_is_on:
         food.refresh()
         scoreboard.add_point()
         scoreboard.refresh()
+        print(snake.length)
    
     
 
