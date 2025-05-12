@@ -2,7 +2,7 @@ from turtle import Turtle
 from random import randint as ri
 
 class Food(Turtle):
-    def __init__(self):
+    def __init__(self) -> None:
         super().__init__()
         self.shape("circle")
         self.shapesize(stretch_len=0.5, stretch_wid=0.5)

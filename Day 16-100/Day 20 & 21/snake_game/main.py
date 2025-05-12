@@ -1,3 +1,4 @@
+from scoreboard import Scoreboard
 from food import Food
 from snake import Snake
 from turtle import Screen
@@ -11,6 +12,7 @@ screen.bgcolor("black")
 screen.title("Snake Game")
 screen.listen()
 
+scoreboard = Scoreboard()
 snake = Snake()
 food = Food()
 
@@ -24,6 +26,7 @@ while game_is_on:
     snake.move_snake()
     if snake.head.distance(food) < 18:
         food.refresh()
+        scoreboard.update()
    
     
 
