@@ -13,6 +13,7 @@ class Scoreboard(Turtle):
 
     def add_point(self) -> int:
         self.score += 1
+        self.refresh()
         return self.score
 
 

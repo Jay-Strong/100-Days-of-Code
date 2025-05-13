@@ -24,7 +24,6 @@ while game_is_on:
     if snake.head.distance(food) < 18:
         food.refresh()
         scoreboard.add_point()
-        scoreboard.refresh()
         snake.add_segment()
     screen.update()
     time.sleep(0.2)
