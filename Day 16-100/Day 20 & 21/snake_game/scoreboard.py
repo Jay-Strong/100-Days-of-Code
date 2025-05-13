@@ -1,5 +1,9 @@
 from turtle import Turtle
 
+ALIGNMENT = "center"
+FONT = ("Cascadia Code", 18, "normal")
+
+
 class Scoreboard(Turtle):
     def __init__(self) -> None:
         super().__init__()
@@ -20,4 +24,4 @@ class Scoreboard(Turtle):
     def refresh(self) -> None:
         self.score_text = f"Score: {self.score}"
         self.clear()
-        self.write(self.score_text, False, "center", ("Cascadia Code", 18, "normal"))
+        self.write(self.score_text, False, ALIGNMENT, ("Cascadia Code", 18, "normal"))
