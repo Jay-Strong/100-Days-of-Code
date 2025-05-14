@@ -20,11 +20,6 @@ screen.update()
 game_is_on = True
 
 while game_is_on:
-    for segment in snake.segments:
-        if not snake.segments[1]:
-            if snake.head.distance(snake.segment) < 15:
-                game_is_on = False
-                scoreboard.game_over()
     if snake.head.xcor() > 280 or snake.head.xcor() < -280 or snake.head.ycor() > 280 or snake.head.ycor() < -280:
         game_is_on = False
         scoreboard.game_over()
