@@ -17,17 +17,22 @@ snake = Snake()
 food = Food()
 
 screen.update()
-
 game_is_on = True
 
 while game_is_on:
+    if snake.head.xcor() > 280 or snake.head.xcor() < -280 or snake.head.ycor() > 280 or snake.head.ycor() < -280:
+        game_is_on = False
+        scoreboard.game_over()
     if snake.head.distance(food) < 18:
         food.refresh()
         scoreboard.add_point()
+        scoreboard.refresh()
         snake.add_segment()
+        print(len(snake.segments))
     screen.update()
     time.sleep(0.2)
     snake.move_snake()
+    
     
 
 screen.exitonclick()
