@@ -18,46 +18,45 @@ class Snake:
 
     def create_snake(self) -> None:
         for position in START_POSITIONS:
-            new_segment = turtle.Turtle(shape="square")
-            new_segment.color("white")
-            new_segment.penup()
-            new_segment.goto(position)
-            self.segments.append(new_segment)
+            self.add_segment(position=position)
 
 
-    def add_segment(self) -> None:
+    def add_segment(self: object, position: tuple) -> None:
         new_segment = turtle.Turtle(shape="square")
         new_segment.color("white")
         new_segment.penup()
-        new_x = self.segments[- 1].xcor()
-        new_y = self.segments[- 1].ycor()
-        new_segment.goto(new_x, new_y)
+        new_segment.goto(position)
         self.segments.append(new_segment)
+
+
+    def extend(self: object) -> None: 
+        self.add_segment(self.segments[-1].position())
         
+    
 
 
-    def right(self) -> None:
+    def right(self: object) -> None:
         if self.head.heading() != LEFT:
             self.head.seth(RIGHT)
 
 
-    def up(self) -> None:
+    def up(self: object) -> None:
         if self.head.heading() != DOWN:
             self.head.seth(UP)
 
 
-    def left(self) -> None:
+    def left(self: object) -> None:
         if self.head.heading() != RIGHT:
             self.head.seth(LEFT)
 
 
-    def down(self) -> None:
+    def down(self: object) -> None:
         if self.head.heading() != UP:
             self.head.seth(DOWN)
 
 
 
-    def move_snake(self) -> None:
+    def move_snake(self: object) -> None:
         turtle.onkey(fun=self.right, key="Right")
         turtle.onkey(fun=self.up, key="Up")
         turtle.onkey(fun=self.left, key="Left")
