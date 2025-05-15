@@ -37,7 +37,7 @@ while game_is_on:
         print(len(snake.segments))
 
     screen.update()
-    time.sleep(0.1)
+    time.sleep(0.15)
     snake.move_snake()
     
     
