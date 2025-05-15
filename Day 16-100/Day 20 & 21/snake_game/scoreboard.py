@@ -20,7 +20,6 @@ class Scoreboard(Turtle):
         self.penup()
         self.goto(0, 0)
         self.write("Game Over 🙁", False, ALIGNMENT, FONT)
-
         
 
     def add_point(self: object) -> int:
@@ -33,3 +32,4 @@ class Scoreboard(Turtle):
         self.score_text = f"Score: {self.score}"
         self.clear()
         self.write(self.score_text, False, ALIGNMENT, FONT)
+        

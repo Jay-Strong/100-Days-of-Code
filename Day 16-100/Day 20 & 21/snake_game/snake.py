@@ -32,8 +32,6 @@ class Snake:
     def extend(self: object) -> None: 
         self.add_segment(self.segments[-1].position())
         
-    
-
 
     def right(self: object) -> None:
         if self.head.heading() != LEFT:
@@ -55,7 +53,6 @@ class Snake:
             self.head.seth(DOWN)
 
 
-
     def move_snake(self: object) -> None:
         turtle.onkey(fun=self.right, key="Right")
         turtle.onkey(fun=self.up, key="Up")
@@ -66,3 +63,4 @@ class Snake:
             new_y = self.segments[seg_num - 1].ycor()
             self.segments[seg_num].goto(new_x, new_y)
         self.head.forward(MOVE_DISTANCE)
+        
