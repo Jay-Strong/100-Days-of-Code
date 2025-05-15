@@ -1,4 +1,5 @@
 from turtle import Screen
+from paddle import Paddle
 from pong_court import Court
 import time
 
@@ -10,6 +11,7 @@ screen.listen()
 
 court = Court()
 court.draw_centerline()
+paddle = Paddle()
 
 screen.update()
 
