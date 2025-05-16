@@ -10,11 +10,12 @@ screen.tracer(0)
 screen.bgcolor("black")
 screen.listen()
 
+left_sb = sb()
 court = Court()
 court.draw_centerline()
 paddle = Paddle()
-sb_left = sb.goto()
 screen.update()
+
 
 screen.exitonclick()
 
