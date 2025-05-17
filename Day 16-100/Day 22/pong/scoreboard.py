@@ -20,7 +20,8 @@ class Scoreboard(Turtle):
 
     def refresh(self: object) -> None:
         self.clear()
-        self.write(self.score, False, ALIGNMENT, FONT)
+        self.score_text = f"{self.score}"
+        self.write(self.score_text, False, ALIGNMENT, FONT)
 
 
     def left_scoreboard(self: object, location: tuple = LEFT) -> None:
