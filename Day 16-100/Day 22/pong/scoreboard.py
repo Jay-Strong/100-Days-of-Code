@@ -8,8 +8,9 @@ LEFT = (-40, 270)
 class Scoreboard(Turtle):
     def __init__(self: object) -> None:
         super().__init__()
-        self.create_scoreboard(LEFT)
         self.score = 0
+        self.create_scoreboard(LEFT)
+        
 
     def create_scoreboard(self: object, location: int) -> None:
         self.penup()
