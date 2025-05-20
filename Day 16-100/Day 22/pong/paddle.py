@@ -3,18 +3,17 @@ import turtle
 UP = 90
 DOWN = 270
 MOVE_DISTANCE = 20
-START_POSITIONS = [(-280, -40), (-280, -20), (-280, 0), (-280, 20), (-280, 40)]
-# START_POSITIONS_RIGHT = [(-20, 270), (0, 270), (-40, 270)]
+
 
 class Paddle:
-    def __init__(self: object) -> None:
+    def __init__(self: object, positions: list[tuple]) -> None:
         self.segments = []
-        self.paddle = self.create_paddle()
+        self.paddle = self.create_paddle(positions=positions)
         self.head = self.segments[0]
 
 
-    def create_paddle(self) -> None:
-        for position in START_POSITIONS:
+    def create_paddle(self, positions: list[tuple]) -> None:
+        for position in positions:
             self.add_segment(position=position)
 
 
