@@ -3,14 +3,14 @@ import turtle
 UP = 90
 DOWN = 270
 MOVE_DISTANCE = 20
+LEFT_PADDLE_POS = [(-370, -40), (-370, -20), (-370, 0), (-370, 20), (-370, 40)]
+RIGHT_PADDLE_POS = [(370, -40), (370, -20), (370, 0), (370, 20), (370, 40)]
 
 
 class Paddle:
-    def __init__(self: object, positions: list[tuple]) -> None:
+    def __init__(self: object) -> None:
         self.segments = []
-        self.paddle = self.create_paddle(positions=positions)
-        self.head = self.segments[0]
-
+        
 
     def create_paddle(self, positions: list[tuple]) -> None:
         for position in positions:
@@ -38,3 +38,19 @@ class Paddle:
     def move(self: object) -> None:
         turtle.onkey(fun=self.up, key="Up")
         turtle.onkey(fun=self.down, key="Down")
+
+
+class LeftPaddle(Paddle):
+    def __init__(self: object) -> None:
+        super().__init__()
+        positions = LEFT_PADDLE_POS
+        self.create_paddle(positions)
+        self.head = self.segments[0]
+
+
+class RightPaddle(Paddle):
+    def __init__(self: object) -> None:
+        super().__init__()
+        positions = RIGHT_PADDLE_POS
+        self.create_paddle(positions)
+        self.head = self.segments[0]
