@@ -13,7 +13,7 @@ class Court(Turtle):
         self.seth(270)
         self.draw_centerline()
 
-    def draw_centerline(self: object) -> None:
+    def draw_centerline(self) -> None:
         for _ in range(29):
             self.stamp()
             self.forward(50)

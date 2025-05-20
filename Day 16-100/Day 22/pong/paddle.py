@@ -7,17 +7,19 @@ LEFT_PADDLE_POS = [(-370, -40), (-370, -20), (-370, 0), (-370, 20), (-370, 40)]
 RIGHT_PADDLE_POS = [(370, -40), (370, -20), (370, 0), (370, 20), (370, 40)]
 
 
-class Paddle:
-    def __init__(self: object) -> None:
+class Paddle(turtle.Turtle):
+    def __init__(self) -> None:
+        super().__init__()
         self.segments = []
         
 
     def create_paddle(self, positions: list[tuple]) -> None:
         for position in positions:
             self.add_segment(position=position)
+        self.head = self.segments[0]
 
 
-    def add_segment(self: object, position: tuple) -> None:
+    def add_segment(self, position: tuple) -> None:
         self.new_segment = turtle.Turtle(shape="square")
         self.new_segment.color("white")
         self.new_segment.penup()
@@ -25,32 +27,37 @@ class Paddle:
         self.segments.append(self.new_segment)
 
     
-    def up(self: object) -> None:
+    def up(self) -> None:
         self.head.seth(UP)
         self.forward(MOVE_DISTANCE)
 
 
-    def down(self: object) -> None:
+    def down(self) -> None:
         self.head.seth(DOWN)
         self.forward(MOVE_DISTANCE)
 
 
-    def move(self: object) -> None:
+    def move(self) -> None:
         turtle.onkey(fun=self.up, key="Up")
         turtle.onkey(fun=self.down, key="Down")
+        for seg_num in range(len(self.segments) - 1, 0, -1):
+            new_x = self.segments[seg_num - 1].xcor()
+            new_y = self.segments[seg_num - 1].ycor()
+            self.segments[seg_num].goto(new_x, new_y)
+        self.head.forward(MOVE_DISTANCE)
 
 
 class LeftPaddle(Paddle):
-    def __init__(self: object) -> None:
+    def __init__(self) -> None:
         super().__init__()
-        positions = LEFT_PADDLE_POS
-        self.create_paddle(positions)
+        self.positions = LEFT_PADDLE_POS
+        self.create_paddle(self.positions)
         self.head = self.segments[0]
 
 
 class RightPaddle(Paddle):
-    def __init__(self: object) -> None:
+    def __init__(self) -> None:
         super().__init__()
-        positions = RIGHT_PADDLE_POS
-        self.create_paddle(positions)
+        self.positions = RIGHT_PADDLE_POS
+        self.create_paddle(self.positions)
         self.head = self.segments[0]

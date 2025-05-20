@@ -16,7 +16,8 @@ right_sb = rs()
 left_paddle = lp()
 right_paddle = rp()
 screen.update()
-
+time.sleep(0.15)
+left_paddle.move()
 
 screen.exitonclick()
 
