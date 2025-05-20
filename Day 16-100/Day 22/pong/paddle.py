@@ -17,6 +17,7 @@ class Paddle(turtle.Turtle):
         for position in positions:
             self.add_segment(position=position)
         self.head = self.segments[0]
+        self.head.seth(UP)
 
 
     def add_segment(self, position: tuple) -> None:
