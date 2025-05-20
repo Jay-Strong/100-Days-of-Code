@@ -1,5 +1,5 @@
 from turtle import Screen
-from scoreboard import Scoreboard as sb
+from scoreboard import LeftScore as ls, RightScore as rs, Scoreboard as sb
 from paddle import Paddle
 from pong_court import Court
 import time
@@ -17,9 +17,8 @@ screen.bgcolor("black")
 screen.listen()
 
 court = Court()
-court.draw_centerline()
-left_sb = sb(location=LEFT_SB_POS)
-right_sb = sb(location=RIGHT_SB_POS)
+left_sb = ls()
+right_sb = rs()
 left_paddle = Paddle(positions=LEFT_PADDLE_POS)
 right_paddle = Paddle(positions=RIGHT_PADDLE_POS)
 screen.update()

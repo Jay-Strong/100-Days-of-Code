@@ -36,4 +36,5 @@ class Paddle:
 
 
     def move(self: object) -> None:
-        turtle.onkey(fun=up, key="Up")
+        turtle.onkey(fun=self.up, key="Up")
+        turtle.onkey(fun=self.down, key="Down")

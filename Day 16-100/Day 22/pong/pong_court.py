@@ -11,7 +11,7 @@ class Court(Turtle):
         self.speed(0)
         self.goto(0, 280)
         self.seth(270)
-        
+        self.draw_centerline()
 
     def draw_centerline(self: object) -> None:
         for _ in range(29):
