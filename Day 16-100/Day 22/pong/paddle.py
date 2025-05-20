@@ -27,6 +27,7 @@ class Paddle:
     
     def up(self: object) -> None:
         self.head.seth(UP)
+        self.forward(MOVE_DISTANCE)
 
 
     def down(self: object) -> None:
@@ -34,8 +35,5 @@ class Paddle:
         self.forward(MOVE_DISTANCE)
 
 
-    
-
-
-
-        
+    def move(self: object) -> None:
+        turtle.onkey(fun=up, key="Up")

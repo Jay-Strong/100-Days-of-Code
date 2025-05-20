@@ -2,7 +2,8 @@ from turtle import Turtle
 
 ALIGNMENT = "center"
 FONT = ("Cascadia Code", 40, "normal")
-
+RIGHT_SB_POS = (70, 230)
+LEFT_SB_POS = (-70, 230)
 
 class Scoreboard(Turtle):
     def __init__(self: object, location: tuple) -> None:
@@ -12,7 +13,6 @@ class Scoreboard(Turtle):
         self.score = 0
         self.create_scoreboard(location)
 
-        
 
     def create_scoreboard(self: object, location: tuple) -> None:
         self.penup()
@@ -21,7 +21,6 @@ class Scoreboard(Turtle):
         self.goto(location)
         self.refresh()
         
-    
 
     def refresh(self: object) -> None:
         self.clear()
@@ -29,7 +28,8 @@ class Scoreboard(Turtle):
         self.write(self.score_text, False, ALIGNMENT, FONT)
 
 
-    # def scoreboard(self: object, location: tuple = LEFT) -> None:
-    #     self.goto(location)
-          
-
+class LeftScore(Scoreboard):
+    def __init__(self: object, location: tuple) -> None:
+        super().__init__()
+        position = LEFT_SB_POS
+        self.create_scoreboard(position)
