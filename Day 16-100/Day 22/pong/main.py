@@ -4,8 +4,8 @@ from paddle import Paddle
 from pong_court import Court
 import time
 
-RIGHT = (70, 230)
-LEFT = (-70, 230)
+RIGHT_SB = (70, 230)
+LEFT_SB = (-70, 230)
 LEFT_PADDLE_POS = [(-370, -40), (-370, -20), (-370, 0), (-370, 20), (-370, 40)]
 RIGHT_PADDLE_POS = [(370, -40), (370, -20), (370, 0), (370, 20), (370, 40)]
 
@@ -18,8 +18,8 @@ screen.listen()
 
 court = Court()
 court.draw_centerline()
-left_sb = sb(location=LEFT)
-right_sb = sb(location=RIGHT)
+left_sb = sb(location=LEFT_SB)
+right_sb = sb(location=RIGHT_SB)
 left_paddle = Paddle(positions=LEFT_PADDLE_POS)
 right_paddle = Paddle(positions=RIGHT_PADDLE_POS)
 screen.update()

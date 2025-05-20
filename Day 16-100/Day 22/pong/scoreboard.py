@@ -5,7 +5,7 @@ FONT = ("Cascadia Code", 40, "normal")
 
 
 class Scoreboard(Turtle):
-    def __init__(self: object, location: int) -> None:
+    def __init__(self: object, location: tuple) -> None:
         super().__init__()
         RIGHT = (70, 230)
         LEFT = (-70, 230)
@@ -14,7 +14,7 @@ class Scoreboard(Turtle):
 
         
 
-    def create_scoreboard(self: object, location: int) -> None:
+    def create_scoreboard(self: object, location: tuple) -> None:
         self.penup()
         self.hideturtle()
         self.color("white")
