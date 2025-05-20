@@ -5,6 +5,7 @@ from pong_court import Court
 import time
 
 screen = Screen()
+screen.title("Pong")
 screen.setup(width = 800, height = 600)
 screen.tracer(0)
 screen.bgcolor("black")
