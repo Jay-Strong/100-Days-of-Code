@@ -17,9 +17,10 @@ class Paddle(turtle.Turtle):
         for position in positions:
             self.add_segment(position=position)
         self.head = self.segments[0]
+        self.head.seth(UP)
         self.tail = self.segments[-1]
-        # self.head.seth(UP)
-        # self.tail.seth(DOWN)
+        self.tail.seth(DOWN)
+       
 
 
     def add_segment(self, position: tuple) -> None:
@@ -32,13 +33,12 @@ class Paddle(turtle.Turtle):
     
     def up(self) -> None:
         for seg_num in self.segments:
-            self.seth(UP)
             seg_num.forward(MOVE_DISTANCE)
 
 
     def down(self) -> None:
         for seg_num in self.segments:
-            self.seth(UP)
+            # seg_num.seth(DOWN)
             seg_num.forward(MOVE_DISTANCE)
 
 
@@ -64,7 +64,7 @@ class LeftPaddle(Paddle):
         super().__init__()
         self.positions = LEFT_PADDLE_POS
         self.create_paddle(self.positions)
-        self.head = self.segments[0]
+
 
 
 class RightPaddle(Paddle):
@@ -72,4 +72,3 @@ class RightPaddle(Paddle):
         super().__init__()
         self.positions = RIGHT_PADDLE_POS
         self.create_paddle(self.positions)
-        self.head = self.segments[0]
