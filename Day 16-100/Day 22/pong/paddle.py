@@ -20,8 +20,6 @@ class Paddle(turtle.Turtle):
         self.tail = self.segments[-1]
 
        
-
-
     def add_segment(self, position: tuple) -> None:
         self.new_segment = turtle.Turtle(shape="square")
         self.new_segment.color("white")
@@ -31,7 +29,6 @@ class Paddle(turtle.Turtle):
         self.segments.append(self.new_segment)
         
 
-    
     def up(self) -> None:
         for seg_num in self.segments:
             seg_num.forward(MOVE_DISTANCE)
