@@ -11,6 +11,8 @@ class Paddle(turtle.Turtle):
     def __init__(self) -> None:
         super().__init__()
         self.segments = []
+        self.moving_up = False
+        self.moving_down = False
         
 
     def create_paddle(self, positions: list[tuple]) -> None:
@@ -27,6 +29,22 @@ class Paddle(turtle.Turtle):
         self.new_segment.goto(position)
         self.new_segment.seth(UP)
         self.segments.append(self.new_segment)
+
+    
+    def start_up(self):
+        self.moving_up = True
+
+
+    def stop_up(self):
+        self.moving_up = False
+
+
+    def start_down(self):
+        self.moving_down = True
+
+
+    def stop_down(self):
+        self.moving_down = False
         
 
     def up(self) -> None:
@@ -40,8 +58,12 @@ class Paddle(turtle.Turtle):
 
 
     def move(self) -> None:
-        turtle.onkey(fun=self.up, key="Up")
-        turtle.onkey(fun=self.down, key="Down")
+        if self.moving_up:
+            self.up()
+        if self.moving_down:
+            self.down()
+
+        
 
         
 

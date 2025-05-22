@@ -18,6 +18,11 @@ left_paddle = lp()
 right_paddle = rp()
 screen.update()
 
+screen.onkeypress(left_paddle.start_up, "Up")
+screen.onkeyrelease(left_paddle.stop_up, "Up")
+screen.onkeypress(left_paddle.start_down, "Down")
+screen.onkeyrelease(left_paddle.stop_down, "Down")
+
 game_is_on = True
 
 while game_is_on:
