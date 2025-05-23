@@ -6,10 +6,10 @@ RIGHT_SB_POS = (70, 230)
 LEFT_SB_POS = (-70, 230)
 
 class Scoreboard(Turtle):
-    def __init__(self) -> None:
+    def __init__(self, position: tuple) -> None:
         super().__init__()
         self.score = 0
-        
+        self.create_scoreboard(position)
 
     def create_scoreboard(self, position: tuple) -> None:
         self.penup()
@@ -23,19 +23,3 @@ class Scoreboard(Turtle):
         self.clear()
         self.score_text = f"{self.score}"
         self.write(self.score_text, False, ALIGNMENT, FONT)
-
-
-class LeftScore(Scoreboard):
-    def __init__(self) -> None:
-        super().__init__()
-        position = LEFT_SB_POS
-        self.create_scoreboard(position)
-
-
-class RightScore(Scoreboard):
-    def __init__(self) -> None:
-        super().__init__()
-        position = RIGHT_SB_POS
-        self.create_scoreboard(position)
-
-

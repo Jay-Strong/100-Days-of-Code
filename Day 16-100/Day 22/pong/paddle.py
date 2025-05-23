@@ -8,11 +8,14 @@ RIGHT_PADDLE_POS = [(370, -40), (370, -20), (370, 0), (370, 20), (370, 40)]
 
 
 class Paddle(turtle.Turtle):
-    def __init__(self) -> None:
+    def __init__(self, positions: list[tuple]) -> None:
         super().__init__()
+        self.positions = positions
         self.segments = []
         self.moving_up = False
         self.moving_down = False
+        self.positions = LEFT_PADDLE_POS
+        self.create_paddle(self.positions)
         
 
     def create_paddle(self, positions: list[tuple]) -> None:
@@ -60,18 +63,3 @@ class Paddle(turtle.Turtle):
             self.up()
         if self.moving_down:
             self.down()
-
-
-class LeftPaddle(Paddle):
-    def __init__(self) -> None:
-        super().__init__()
-        self.positions = LEFT_PADDLE_POS
-        self.create_paddle(self.positions)
-
-
-
-class RightPaddle(Paddle):
-    def __init__(self) -> None:
-        super().__init__()
-        self.positions = RIGHT_PADDLE_POS
-        self.create_paddle(self.positions)
