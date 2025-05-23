@@ -1,7 +1,7 @@
 from turtle import Turtle
 
 ALIGNMENT = "center"
-FONT = ("Cascadia Code", 40, "normal")
+FONT = ("Lucida Console", 40, "normal")
 RIGHT_SB_POS = (70, 230)
 LEFT_SB_POS = (-70, 230)
 
