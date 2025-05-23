@@ -1,6 +1,7 @@
 from turtle import Screen
 from scoreboard import LeftScore as ls, RightScore as rs
 from paddle import LeftPaddle as lp, RightPaddle as rp
+from ball import Ball
 from pong_court import Court
 import time
 
@@ -8,15 +9,17 @@ screen = Screen()
 screen.title("Pong")
 screen.setup(width = 800, height = 600)
 screen.tracer(0)
-screen.bgcolor("black")
+# screen.bgcolor("black")
 screen.listen()
 
 court = Court()
+ball = Ball()
 left_sb = ls()
 right_sb = rs()
 left_paddle = lp()
 right_paddle = rp()
 screen.update()
+
 
 screen.onkeypress(left_paddle.start_up, "Up")
 screen.onkeyrelease(left_paddle.stop_up, "Up")
