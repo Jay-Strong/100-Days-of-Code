@@ -17,7 +17,7 @@ ball = Ball()
 left_score = scoreboard.Scoreboard(scoreboard.LEFT_SB_POS)
 right_score = scoreboard.Scoreboard(scoreboard.RIGHT_SB_POS)
 left_paddle = paddle.Paddle(paddle.LEFT_PADDLE_POS)
-left_paddle = paddle.Paddle(paddle.LEFT_PADDLE_POS)
+right_paddle = paddle.Paddle(paddle.RIGHT_PADDLE_POS)
 
 screen.update()
 

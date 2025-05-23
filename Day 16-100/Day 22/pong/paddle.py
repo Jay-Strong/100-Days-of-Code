@@ -10,11 +10,11 @@ RIGHT_PADDLE_POS = [(370, -40), (370, -20), (370, 0), (370, 20), (370, 40)]
 class Paddle(turtle.Turtle):
     def __init__(self, positions: list[tuple]) -> None:
         super().__init__()
+        self.hideturtle()
         self.positions = positions
         self.segments = []
         self.moving_up = False
         self.moving_down = False
-        self.positions = LEFT_PADDLE_POS
         self.create_paddle(self.positions)
         
 
