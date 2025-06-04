@@ -31,7 +31,24 @@ game_is_on = True
 while game_is_on:
     time.sleep(0.1)
     left_paddle.move()
-    ball.serve_left()
+
+    if not ball.is_right:
+        ball.serve_left()
+    elif not ball.is_left:
+        ball.serve_right()
+    else:
+        ball.start_game()
+
+    if ball.xcor() > 390:
+        right_score.score += 1
+        right_score.refresh()
+        ball.home()
+    elif ball.xcor() < -390:
+        left_score.score =+ 1
+        right_score.refresh()
+        ball.home()
+
+    
     screen.update()
 
 screen.exitonclick()
