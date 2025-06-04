@@ -7,11 +7,24 @@ SERVE_TO_RIGHT = randint(-60, 60)
 class Ball(Turtle):
     def __init__(self) -> None:
         super().__init__()
+        self.is_left = False
+        self.is_right = False
         # self.penup()
         self.color("white")
-        self.shapesize(stretch_len=5, stretch_wid=5)
-        # self.shape("square")
-        # self.seth(SERVE_TO_LEFT)
+        self.shape("square")
         self.seth(SERVE_TO_RIGHT)
         self.speed(1)
-        self.forward(600)
+        
+
+    def serve_right(self) -> None:
+        self.seth(SERVE_TO_RIGHT)
+        self.is_right = True
+        self.is_left =False
+        self.forward(100)
+    
+    
+    def serve_left(self) -> None:
+        self.seth(SERVE_TO_LEFT)
+        self.is_left = True
+        self.is_right = False
+        self.forward(100)
