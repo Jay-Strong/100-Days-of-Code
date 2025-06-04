@@ -1,7 +1,7 @@
 from turtle import Screen
 import scoreboard
 import paddle
-from ball import Ball
+import ball
 from pong_court import Court
 import time
 
@@ -13,7 +13,7 @@ screen.bgcolor("black")
 screen.listen()
 
 court = Court()
-ball = Ball()
+game_ball = ball.Ball()
 left_score = scoreboard.Scoreboard(scoreboard.LEFT_SB_POS)
 right_score = scoreboard.Scoreboard(scoreboard.RIGHT_SB_POS)
 left_paddle = paddle.Paddle(paddle.LEFT_POS)
@@ -32,26 +32,27 @@ while game_is_on:
     time.sleep(0.1)
     left_paddle.move()
 
-    if not ball.is_right:
-        ball.serve_left()
-    elif not ball.is_left:
-        ball.serve_right()
-    else:
-        ball.start_game()
+    if not game_ball.is_right and not game_ball.is_left:
+        game_ball.serve_ball()
 
-    if ball.xcor() > 390:
+    if game_ball.xcor() > 390:
         right_score.score += 1
         right_score.refresh()
-        ball.home()
-    elif ball.xcor() < -390:
+        game_ball.home()
+    elif game_ball.xcor() < -390:
         left_score.score =+ 1
         right_score.refresh()
-        ball.home()
+        game_ball.home()
 
-    if ball.ycor() > 290:
-       new_heading = ball.heading() + 45
-    elif ball.ycor() < -290:
-       new_heading = ball.heading() - 45
+    if game_ball.ycor() >= 290:
+       new_heading = game_ball.heading() + 45
+       game_ball. seth(new_heading)
+    elif game_ball.ycor() <= -290:
+       new_heading = game_ball.heading() - 45
+       game_ball. seth(new_heading)
+
+    if game_ball.distance(left_paddle) < 15:
+        game_ball.back(ball.MOVE_DISTANCE)
 
     
     screen.update()
