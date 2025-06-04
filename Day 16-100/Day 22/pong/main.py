@@ -41,13 +41,12 @@ while game_is_on:
 
     if ball.xcor() > 390:
         right_score.score += 1
-        right_score.refresh()
+        left_score.refresh()
         ball.home()
     elif ball.xcor() < -390:
         left_score.score =+ 1
         right_score.refresh()
         ball.home()
-
     
     screen.update()
 
