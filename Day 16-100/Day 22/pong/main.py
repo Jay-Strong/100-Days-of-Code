@@ -16,8 +16,8 @@ court = Court()
 ball = Ball()
 left_score = scoreboard.Scoreboard(scoreboard.LEFT_SB_POS)
 right_score = scoreboard.Scoreboard(scoreboard.RIGHT_SB_POS)
-left_paddle = paddle.Paddle(paddle.LEFT_PADDLE_POS)
-right_paddle = paddle.Paddle(paddle.RIGHT_PADDLE_POS)
+left_paddle = paddle.Paddle(paddle.LEFT_POS)
+right_paddle = paddle.Paddle(paddle.RIGHT_POS)
 
 screen.update()
 
@@ -41,12 +41,18 @@ while game_is_on:
 
     if ball.xcor() > 390:
         right_score.score += 1
-        left_score.refresh()
+        right_score.refresh()
         ball.home()
     elif ball.xcor() < -390:
         left_score.score =+ 1
         right_score.refresh()
         ball.home()
+
+    if ball.ycor() > 290:
+       new_heading = ball.heading() + 45
+    elif ball.ycor() < -290:
+       new_heading = ball.heading() - 45
+
     
     screen.update()
 

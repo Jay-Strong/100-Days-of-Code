@@ -3,6 +3,7 @@ from random import randint, choice
 
 SERVE_TO_LEFT = randint(120, 240)
 SERVE_TO_RIGHT = randint(-60, 60)
+MOVE_DISTANCE = 20
 
 class Ball(Turtle):
     def __init__(self) -> None:
@@ -20,14 +21,14 @@ class Ball(Turtle):
         self.seth(SERVE_TO_RIGHT)
         self.is_right = True
         self.is_left = False
-        self.forward(100)
+        self.forward(MOVE_DISTANCE)
     
     
     def serve_left(self) -> None:
         self.seth(SERVE_TO_LEFT)
         self.is_left = True
         self.is_right = False
-        self.forward(100)
+        self.forward(MOVE_DISTANCE)
 
     def start_game(self) -> None:
         self.serve_options = [self.serve_right, self.serve_left]
