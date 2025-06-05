@@ -1,9 +1,10 @@
 import turtle
 
 UP = 90
+DOWN = 270
 MOVE_DISTANCE = 20
-RIGHT_POS = (370, 0)
-LEFT_POS = (-370, 0)
+RIGHT_POS = (350, 0)
+LEFT_POS = (-350, 0)
 
 class Paddle(turtle.Turtle):
     def __init__(self, position: tuple) -> None:
@@ -12,10 +13,9 @@ class Paddle(turtle.Turtle):
         self.penup()
         self.shape("square")
         self.color("white")
-        self.shapesize(stretch_wid=1, stretch_len=5)
+        self.shapesize(stretch_wid=5, stretch_len=1)
         self.moving_up = False
         self.moving_down = False
-        self.seth(UP)
         self.goto(position)
 
     def start_up(self):
@@ -35,11 +35,13 @@ class Paddle(turtle.Turtle):
         
 
     def up(self) -> None:
-        self.forward(MOVE_DISTANCE)
+        new_y = self.ycor() + MOVE_DISTANCE
+        self.goto(self.xcor(), new_y)
 
 
     def down(self) -> None:
-        self.back(MOVE_DISTANCE)
+        new_y = self.ycor() - MOVE_DISTANCE
+        self.goto(self.xcor(), new_y)
 
 
     def move(self) -> None:
