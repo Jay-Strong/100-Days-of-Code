@@ -41,12 +41,12 @@ while game_is_on:
     if not game_ball.is_right and not game_ball.is_left:
         game_ball.serve_ball()
 
-    if game_ball.xcor() > 350:
-        right_score.score += 1
-        right_score.refresh()
+    if game_ball.xcor() >= 360:
+        left_score.score += 1
+        left_score.refresh()
         game_ball.home()
-    elif game_ball.xcor() < -350:
-        left_score.score =+ 1
+    elif game_ball.xcor() <= -360:
+        right_score.score =+ 1
         right_score.refresh()
         game_ball.home()
 
