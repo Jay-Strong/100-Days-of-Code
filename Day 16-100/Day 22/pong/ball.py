@@ -20,9 +20,6 @@ class Ball(Turtle):
         self.forward(MOVE_DISTANCE)
 
     def serve_ball(self) -> None:
-        # self.serve_options = [self.seth(LEFT_HEADING), self.seth(RIGHT_HEADING)]
-        # self.serve_choice = choice(self.serve_options)
-        # self.serve_choice = choice(LEFT_HEADING)
         self.seth(LEFT_HEADING)
         self.forward(MOVE_DISTANCE)
      
