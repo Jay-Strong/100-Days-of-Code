@@ -12,7 +12,7 @@ class Ball(Turtle):
         self.is_right = False
         # self.penup()
         self.color("white")
-        self.shape("square")
+        self.shape("circle")
         self.speed(1)
 
 
