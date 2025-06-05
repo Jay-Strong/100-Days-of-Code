@@ -37,23 +37,26 @@ while game_is_on:
     time.sleep(0.08)
     left_paddle.move()
     right_paddle.move()
+    game_ball.move()
 
-    if not game_ball.is_right and not game_ball.is_left:
-        game_ball.serve_ball()
+    # if not game_ball.is_right and not game_ball.is_left:
+    #     game_ball.serve_ball()
 
+    # Keeping Score
     if game_ball.xcor() >= 360:
         left_score.score += 1
         left_score.refresh()
         game_ball.home()
     elif game_ball.xcor() <= -360:
-        right_score.score =+ 1
+        right_score.score += 1
         right_score.refresh()
         game_ball.home()
 
-    if game_ball.ycor() >= 290:
+    # Bouncing on the walls
+    if game_ball.ycor() >= 270:
        new_heading = game_ball.heading() + 45
        game_ball. seth(new_heading)
-    elif game_ball.ycor() <= -290:
+    elif game_ball.ycor() <= -270:
        new_heading = game_ball.heading() - 45
        game_ball. seth(new_heading)
 

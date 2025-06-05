@@ -17,7 +17,9 @@ class Ball(Turtle):
 
 
     def move(self) -> None:
-        self.forward(MOVE_DISTANCE)
+        new_x = self.xcor() - MOVE_DISTANCE
+        new_y = self.ycor() + MOVE_DISTANCE
+        self.goto(new_x, new_y)
 
     def serve_ball(self) -> None:
         self.seth(LEFT_HEADING)
