@@ -9,7 +9,6 @@ LEFT_POS = (-350, 0)
 class Paddle(turtle.Turtle):
     def __init__(self, position: tuple) -> None:
         super().__init__()
-        # self.hideturtle()
         self.penup()
         self.shape("square")
         self.color("white")

@@ -19,27 +19,33 @@ right_score = scoreboard.Scoreboard(scoreboard.RIGHT_SB_POS)
 left_paddle = paddle.Paddle(paddle.LEFT_POS)
 right_paddle = paddle.Paddle(paddle.RIGHT_POS)
 
-screen.update()
+# screen.update()
 
-screen.onkeypress(left_paddle.start_up, "Up")
-screen.onkeyrelease(left_paddle.stop_up, "Up")
-screen.onkeypress(left_paddle.start_down, "Down")
-screen.onkeyrelease(left_paddle.stop_down, "Down")
+screen.onkeypress(left_paddle.start_up, "w")
+screen.onkeyrelease(left_paddle.stop_up, "w")
+screen.onkeypress(left_paddle.start_down, "s")
+screen.onkeyrelease(left_paddle.stop_down, "s")
+screen.onkeypress(right_paddle.start_up, "Up")
+screen.onkeyrelease(right_paddle.stop_up, "Up")
+screen.onkeypress(right_paddle.start_down, "Down")
+screen.onkeyrelease(right_paddle.stop_down, "Down")
 
 game_is_on = True
 
 while game_is_on:
-    time.sleep(0.1)
+    screen.update()
+    time.sleep(0.08)
     left_paddle.move()
+    right_paddle.move()
 
     if not game_ball.is_right and not game_ball.is_left:
         game_ball.serve_ball()
 
-    if game_ball.xcor() > 390:
+    if game_ball.xcor() > 350:
         right_score.score += 1
         right_score.refresh()
         game_ball.home()
-    elif game_ball.xcor() < -390:
+    elif game_ball.xcor() < -350:
         left_score.score =+ 1
         right_score.refresh()
         game_ball.home()
@@ -53,9 +59,6 @@ while game_is_on:
 
     if game_ball.distance(left_paddle) < 15:
         game_ball.back(ball.MOVE_DISTANCE)
-
-    
-    screen.update()
 
 screen.exitonclick()
 
