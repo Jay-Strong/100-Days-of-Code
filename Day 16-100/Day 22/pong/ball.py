@@ -18,8 +18,20 @@ class Ball(Turtle):
 
     def move(self) -> None:
         new_x = self.xcor() + MOVE_DISTANCE
-        new_y = self.ycor() + MOVE_DISTANCE
+        new_y = self.ycor() + (MOVE_DISTANCE + 10)
         self.goto(new_x, new_y)
+
+
+    def bounce_y(self) -> None:
+        new_x = self.xcor() + MOVE_DISTANCE
+        if self.ycor() > 0:
+            new_y = self.ycor() - (MOVE_DISTANCE + 20)
+        else:
+            new_y = self.ycor() + (MOVE_DISTANCE + 20)
+
+        self.goto(new_x, new_y)
+
+
 
     def serve_ball(self) -> None:
         self.seth(LEFT_HEADING)

@@ -53,14 +53,8 @@ while game_is_on:
         game_ball.home()
 
     # Bouncing on the walls
-    if game_ball.ycor() >= 260:
-       new_heading = game_ball.heading() - 45
-       game_ball. seth(new_heading)
-       game_ball.forward(ball.MOVE_DISTANCE)
-    elif game_ball.ycor() <= -260:
-       new_heading = game_ball.heading() - 45
-       game_ball. seth(new_heading)
-       game_ball.forward(ball.MOVE_DISTANCE)
+    if game_ball.ycor() > 280 or game_ball.ycor() < -280:
+        game_ball.bounce_y()
 
     # Bouncing on the paddles
     if game_ball.distance(left_paddle) < 15:
