@@ -1,37 +1,35 @@
 from turtle import Turtle
-from random import randint, choice
 
-LEFT_HEADING = randint(120, 240)
-RIGHT_HEADING = randint(-60, 60)
-MOVE_DISTANCE = 20
 
 class Ball(Turtle):
     def __init__(self) -> None:
         super().__init__()
-        self.is_left = False
-        self.is_right = False
-        # self.penup()
+        self.penup()
         self.color("white")
         self.shape("circle")
         self.speed(1)
+        self.x_move = 10
+        self.y_move = 10
 
 
     def move(self) -> None:
-        new_x = self.xcor() - MOVE_DISTANCE
-        new_y = self.ycor() + (MOVE_DISTANCE + 10)
+        new_x = self.xcor() + self.x_move
+        new_y = self.ycor() + self.y_move
         self.goto(new_x, new_y)
 
 
-    def bounce_y(self) -> None:
-        new_x = self.xcor() + -MOVE_DISTANCE
-        new_y = self.ycor() + (-MOVE_DISTANCE + 10)
-        self.goto(new_x, new_y)
+    def bounce(self) -> None:
+        self.y_move *= -1
 
 
 
-    def serve_ball(self) -> None:
-        self.seth(LEFT_HEADING)
-        self.forward(MOVE_DISTANCE)
+    # def serve_ball(self) -> None:
+    #     if self.is_right and not self.is_left:
+    #         self.seth(left)
+    #     else:
+    #         self.seth(right)
+    #     self.forward(MOVE_DISTANCE)
+
      
 # ==========================================================================================
     # def serve_right(self) -> None:

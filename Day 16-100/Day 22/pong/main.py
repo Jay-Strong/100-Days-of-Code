@@ -4,6 +4,7 @@ import paddle
 import ball
 from pong_court import Court
 import time
+from random import randint
 
 screen = Screen()
 screen.title("Pong")
@@ -39,26 +40,20 @@ while game_is_on:
     right_paddle.move()
     game_ball.move()
 
-    # if not game_ball.is_right and not game_ball.is_left:
-    #     game_ball.serve_ball()
+    # Detect collision with wall
+    if game_ball.ycor() > 280 or game_ball.ycor() < -280:
+        game_ball.bounce()
+    
+     # Detect collision with paddles
+
 
     # Keeping Score
-    if game_ball.xcor() >= 360:
-        left_score.score += 1
-        left_score.refresh()
+    if game_ball.xcor() >= 400:
+        left_score.add_point()
         game_ball.home()
-    elif game_ball.xcor() <= -360:
-        right_score.score += 1
-        right_score.refresh()
+    elif game_ball.xcor() <= -400:
+        right_score.add_point()
         game_ball.home()
-
-    # Bouncing on the walls
-    if game_ball.ycor() > 280 or game_ball.ycor() < -280:
-        game_ball.bounce_y()
-
-    # Bouncing on the paddles
-    if game_ball.distance(left_paddle) < 15:
-        game_ball.back(ball.MOVE_DISTANCE)
 
 screen.exitonclick()
 
