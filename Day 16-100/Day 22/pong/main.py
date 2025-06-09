@@ -45,7 +45,7 @@ while game_is_on:
         game_ball.wall_bounce()
     
      # Detect collision paddles
-    if game_ball.distance(right_paddle) < 50 and game_ball.xcor() > 330 or game_ball.distance(left_paddle) < 50 and game_ball.xcor() < -330:
+    if game_ball.distance(right_paddle) < 50 and game_ball.xcor() > 320 or game_ball.distance(left_paddle) < 50 and game_ball.xcor() < -320:
         game_ball.paddle_bounce()
 
     # Keeping Score
