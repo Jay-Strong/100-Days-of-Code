@@ -6,10 +6,6 @@ RIGHT_SB_POS = (70, 230)
 LEFT_SB_POS = (-70, 230)
 
 
-
-
-
-
 class Scoreboard(Turtle):
     def __init__(self, position: tuple) -> None:
         super().__init__()

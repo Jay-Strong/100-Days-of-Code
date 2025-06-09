@@ -18,36 +18,9 @@ class Ball(Turtle):
         self.goto(new_x, new_y)
 
 
-    def bounce(self) -> None:
+    def wall_bounce(self) -> None:
         self.y_move *= -1
 
 
-
-    # def serve_ball(self) -> None:
-    #     if self.is_right and not self.is_left:
-    #         self.seth(left)
-    #     else:
-    #         self.seth(right)
-    #     self.forward(MOVE_DISTANCE)
-
-     
-# ==========================================================================================
-    # def serve_right(self) -> None:
-    #     self.seth(SERVE_TO_RIGHT)
-    #     self.is_right = True
-    #     self.is_left = False
-    #     self.forward(MOVE_DISTANCE)
-    
-    
-    # def serve_left(self) -> None:
-    #     self.seth(SERVE_TO_LEFT)
-    #     self.is_left = True
-    #     self.is_right = False
-    #     self.forward(MOVE_DISTANCE)
-
-    # def start_game(self) -> None:
-    #     self.serve_options = [self.serve_right, self.serve_left]
-    #     self.serve_choice = choice(self.serve_options)
-    #     self.serve_choice()
-    #     self.forward(MOVE_DISTANCE)
-
+    def paddle_bounce(self) -> None:
+        self.x_move *= -1
