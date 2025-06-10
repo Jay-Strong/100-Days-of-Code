@@ -34,7 +34,7 @@ game_is_on = True
 
 while game_is_on:
     screen.update()
-    time.sleep(0.08)
+    time.sleep(0.03)
     left_paddle.move()
     right_paddle.move()
     game_ball.move()
