@@ -21,7 +21,6 @@ left_paddle = paddle.Paddle(paddle.LEFT_POS)
 right_paddle = paddle.Paddle(paddle.RIGHT_POS)
 
 # screen.update()
-
 screen.onkeypress(left_paddle.start_up, "w")
 screen.onkeyrelease(left_paddle.stop_up, "w")
 screen.onkeypress(left_paddle.start_down, "s")

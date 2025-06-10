@@ -46,5 +46,7 @@ class Paddle(turtle.Turtle):
     def move(self) -> None:
         if self.moving_up:
             self.up()
+
         if self.moving_down:
             self.down()
+
