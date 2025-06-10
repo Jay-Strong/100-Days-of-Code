@@ -34,13 +34,14 @@ class Paddle(turtle.Turtle):
         
 
     def up(self) -> None:
-        new_y = self.ycor() + MOVE_DISTANCE
-        self.goto(self.xcor(), new_y)
-
+        if self.ycor() < 245:
+            new_y = self.ycor() + MOVE_DISTANCE
+            self.goto(self.xcor(), new_y)
 
     def down(self) -> None:
-        new_y = self.ycor() - MOVE_DISTANCE
-        self.goto(self.xcor(), new_y)
+        if self.ycor() > -240:
+            new_y = self.ycor() - MOVE_DISTANCE
+            self.goto(self.xcor(), new_y)
 
 
     def move(self) -> None:
