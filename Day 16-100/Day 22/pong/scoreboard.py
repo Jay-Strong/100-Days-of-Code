@@ -33,8 +33,11 @@ class Scoreboard(Turtle):
         self.refresh()
          
     def game_over(self, winner) -> None:
+        self.clear()
         self.color("white")
         self.hideturtle()
         self.penup()
         self.goto(0, 0)
-        self.write(f"Game Over. {winner} is the winner!", False, ALIGNMENT, FONT)
+        self.game_over_text = f"Game Over. {winner} is the winner!"
+        self.write(self.game_over_text, False, ALIGNMENT, FONT)
+        self.refresh()

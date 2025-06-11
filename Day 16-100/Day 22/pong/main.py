@@ -57,8 +57,13 @@ while game_is_on:
         game_ball.home()
 
     # Game over conditions
-    if left_score == 10:
+    if left_score.score == 10:
         game_over.game_over(left_paddle)
+        game_is_on = False
+    elif right_score.score == 10:
+        game_over.game_over(right_paddle)
+        game_is_on = False
+
 
 screen.exitonclick()
 
