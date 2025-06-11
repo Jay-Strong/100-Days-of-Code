@@ -5,7 +5,7 @@ FONT = ("Cascadia Code", 18, "normal")
 
 
 class Scoreboard(Turtle):
-    def __init__(self: object) -> None:
+    def __init__(self) -> None:
         super().__init__()
         self.color("white")
         self.hideturtle()
@@ -14,7 +14,7 @@ class Scoreboard(Turtle):
         self.refresh()
 
 
-    def game_over(self: object) -> None:
+    def game_over(self) -> None:
         self.color("white")
         self.hideturtle()
         self.penup()
@@ -22,13 +22,13 @@ class Scoreboard(Turtle):
         self.write("Game Over 🙁", False, ALIGNMENT, FONT)
         
 
-    def add_point(self: object) -> int:
+    def add_point(self) -> int:
         self.score += 1
         self.refresh()
         return self.score
 
 
-    def refresh(self: object) -> None:
+    def refresh(self) -> None:
         self.score_text = f"Score: {self.score}"
         self.clear()
         self.write(self.score_text, False, ALIGNMENT, FONT)

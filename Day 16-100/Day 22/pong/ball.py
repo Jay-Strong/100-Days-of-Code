@@ -10,6 +10,8 @@ class Ball(Turtle):
         self.speed(1)
         self.x_move = 10
         self.y_move = 10
+        serve_left = False
+        serve_right = False
 
 
     def move(self) -> None:

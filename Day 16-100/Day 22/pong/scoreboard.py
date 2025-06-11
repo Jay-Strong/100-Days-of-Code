@@ -4,6 +4,7 @@ ALIGNMENT = "center"
 FONT = ("Lucida Console", 40, "normal")
 RIGHT_SB_POS = (70, 230)
 LEFT_SB_POS = (-70, 230)
+CENTER_SB_POSITION = (0, 0)
 
 
 class Scoreboard(Turtle):
@@ -31,3 +32,9 @@ class Scoreboard(Turtle):
         self.score += 1
         self.refresh()
          
+    def game_over(self, winner) -> None:
+        self.color("white")
+        self.hideturtle()
+        self.penup()
+        self.goto(0, 0)
+        self.write(f"Game Over. {winner} is the winner!", False, ALIGNMENT, FONT)
