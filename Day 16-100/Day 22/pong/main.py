@@ -17,7 +17,6 @@ court = Court()
 game_ball = ball.Ball()
 left_score = scoreboard.Scoreboard(scoreboard.LEFT_SB_POS)
 right_score = scoreboard.Scoreboard(scoreboard.RIGHT_SB_POS)
-game_over = scoreboard.Scoreboard(scoreboard.CENTER_SB_POSITION)
 left_paddle = paddle.Paddle(paddle.LEFT_POS)
 right_paddle = paddle.Paddle(paddle.RIGHT_POS)
 
@@ -58,9 +57,11 @@ while game_is_on:
 
     # Game over conditions
     if left_score.score == 10:
+        game_over = scoreboard.Scoreboard(scoreboard.CENTER_SB_POSITION)
         game_over.game_over(left_paddle)
         game_is_on = False
     elif right_score.score == 10:
+        game_over = scoreboard.Scoreboard(scoreboard.CENTER_SB_POSITION)
         game_over.game_over(right_paddle)
         game_is_on = False
 

@@ -11,6 +11,7 @@ class Scoreboard(Turtle):
     def __init__(self, position: tuple) -> None:
         super().__init__()
         self.score = 0
+        
         self.create_scoreboard(position)
 
 
