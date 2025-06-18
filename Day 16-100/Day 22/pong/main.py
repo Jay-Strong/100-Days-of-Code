@@ -35,7 +35,7 @@ game_is_on = True
 
 while game_is_on:
     screen.update()
-    time.sleep(0.03)
+    time.sleep(0.1)
     left_paddle.move()
     right_paddle.move()
     game_ball.move()
@@ -44,7 +44,7 @@ while game_is_on:
     if game_ball.ycor() > 280 or game_ball.ycor() < -280:
         game_ball.wall_bounce()
     
-     # Detect collision paddles
+     # Detect collision with paddles
     if game_ball.distance(right_paddle) < 50 and game_ball.xcor() > 320 or game_ball.distance(left_paddle) < 50 and game_ball.xcor() < -320:
         game_ball.paddle_bounce()
 
