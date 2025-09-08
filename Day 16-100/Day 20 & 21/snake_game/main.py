@@ -40,8 +40,6 @@ while game_is_on:
     time.sleep(0.15)
     snake.move_snake()
     
-    
+   # py main.py
 
 screen.exitonclick()
-
-# py main.py
